@@ -10,6 +10,7 @@
 @font-face { font-family: "Montserrat"; font-style: normal; font-weight: 300; font-display: swap; src: url("../fonts/montserrat-latin-300-normal.woff2") format("woff2"); }
 @font-face { font-family: "Montserrat"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/montserrat-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Montserrat"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/montserrat-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Montserrat"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/montserrat-latin-600-normal.woff2") format("woff2"); }
 @font-face { font-family: "Fustat"; font-style: normal; font-weight: 400; font-display: swap; src: url("../fonts/fustat-latin-400-normal.woff2") format("woff2"); }
 @font-face { font-family: "Fustat"; font-style: normal; font-weight: 500; font-display: swap; src: url("../fonts/fustat-latin-500-normal.woff2") format("woff2"); }
 @font-face { font-family: "Fustat"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/fustat-latin-600-normal.woff2") format("woff2"); }
@@ -68,6 +69,8 @@ h1, h2, h3 {
   margin: 0;
 }
 p { margin: 0; }
+/* Headline emphasis: key words in Montserrat SemiBold against the Light base */
+h1 strong, h2 strong { font-weight: 600; letter-spacing: -0.025em; }
 :focus-visible { outline: 2px solid var(--gold-mid); outline-offset: 3px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
@@ -157,7 +160,7 @@ p { margin: 0; }
 }
 .hero__photo img {
   width: 100%; height: 100%; object-fit: cover;
-  animation: photoReveal 1.6s var(--ease-out) .15s both;
+  animation: photoReveal .9s var(--ease-out) both;
 }
 /* Oversized outline of the Alkimi mark behind the hero (the device used on the brand book cover), drawn on load */
 .hero__mark { position: absolute; z-index: 0; pointer-events: none; width: min(1500px, 115vw); left: 44%; top: -2%; }
@@ -322,7 +325,7 @@ fieldset.field { border: 0; margin: 18px 0 0; padding: 0; }
 .reveal { opacity: 0; transform: translateY(28px); filter: blur(6px); transition: opacity .9s var(--ease-out), transform .9s var(--ease-out), filter .9s var(--ease-out); }
 .reveal.is-in { opacity: 1; transform: none; filter: blur(0); }
 /* Photo wipe (adapted from the clip-reveal reference). Clip goes on the image so the observer still sees the frame. */
-.reveal-photo img { clip-path: inset(0 0 100% 0); transform: scale(1.12); transition: clip-path 1.3s var(--ease-out), transform 1.8s var(--ease-out); }
+.reveal-photo img { clip-path: inset(0 0 100% 0); transform: scale(1.08); transition: clip-path .8s var(--ease-out), transform 1.1s var(--ease-out); }
 .reveal-photo.is-in img { clip-path: inset(0 0 0 0); transform: scale(1); }
 
 /* ---------- Responsive ---------- */

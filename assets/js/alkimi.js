@@ -19,10 +19,12 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Scroll reveal (blur-in) and photo wipe, only on elements marked for it
-  var targets = document.querySelectorAll('.reveal, .reveal-photo, .steps');
+  // Scroll reveal (blur-in) for text, only on elements marked for it
+  var targets = document.querySelectorAll('.reveal, .steps');
+  var photos = document.querySelectorAll('.reveal-photo');
   if (reduce || !('IntersectionObserver' in window)) {
     targets.forEach(function (el) { el.classList.add('is-in'); });
+    photos.forEach(function (el) { el.classList.add('is-in'); });
   } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
@@ -30,6 +32,21 @@
       });
     }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
     targets.forEach(function (el) { io.observe(el); });
+
+    // Photos: start fetching well before they reach the screen, and only run the wipe
+    // once the image is decoded, so the animation never plays over an empty frame.
+    var pio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        pio.unobserve(e.target);
+        var el = e.target, im = el.querySelector('img');
+        if (im && im.loading === 'lazy') im.loading = 'eager';
+        var ready = !im ? Promise.resolve()
+          : (im.decode ? im.decode() : new Promise(function (r) { im.complete ? r() : im.addEventListener('load', r, { once: true }); }));
+        ready.catch(function () {}).then(function () { el.classList.add('is-in'); });
+      });
+    }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
+    photos.forEach(function (el) { pio.observe(el); });
   }
 
   // Marquee: duplicate the track once so the loop is seamless
@@ -40,6 +57,15 @@
       return c;
     });
     clones.forEach(function (c) { track.appendChild(c); });
+  });
+
+  // Marquee: its photos sit off-screen sideways, so native lazy loading would leave blank tiles.
+  // Switch them to eager loading once the strip is about a screen away.
+  document.querySelectorAll('.marquee').forEach(function (mq) {
+    var go = function () { mq.querySelectorAll('img[loading="lazy"]').forEach(function (i) { i.loading = 'eager'; }); };
+    if (!('IntersectionObserver' in window)) return go();
+    var mio = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { go(); mio.disconnect(); } }, { rootMargin: '800px 0px' });
+    mio.observe(mq);
   });
 
   // Booking form: prototype submit state.
