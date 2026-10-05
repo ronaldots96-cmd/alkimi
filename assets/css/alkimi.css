@@ -72,6 +72,7 @@ p { margin: 0; }
 /* Headline emphasis: key words in Montserrat SemiBold against the Light base */
 h1 strong, h2 strong { font-weight: 600; letter-spacing: -0.025em; }
 :focus-visible { outline: 2px solid var(--gold-mid); outline-offset: 3px; }
+.nowrap { white-space: nowrap; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Page themes */
@@ -138,7 +139,10 @@ h1 strong, h2 strong { font-weight: 600; letter-spacing: -0.025em; }
 .hero { position: relative; padding-top: clamp(104px, 14vh, 150px); padding-bottom: clamp(56px, 8vw, 104px); overflow: hidden; }
 .hero__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
 .hero__title { font-size: clamp(2.3rem, 1.2rem + 3.6vw, 4rem); max-width: 15ch; }
-.hero__title--long { font-size: clamp(2.1rem, 1.1rem + 2.9vw, 3.35rem); max-width: 17ch; }
+.hero__grid--wide-copy { grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); }
+.hero__grid--wide-copy .hero__copy { container-type: inline-size; }
+/* Sized to the column (cqi) so each sentence wraps into two even lines on desktop */
+.hero__title--long { font-size: clamp(2rem, 1rem + 2.4vw, 3rem); font-size: clamp(1.9rem, 7.1cqi, 3rem); max-width: none; text-wrap: balance; }
 .hero__title .line { display: block; overflow: hidden; padding-bottom: .08em; }
 .hero__title .line + .line { margin-top: .18em; }
 .hero__title .line > span { display: block; transform: translateY(110%); animation: textSlide 1.1s var(--ease-out) forwards; }
@@ -193,6 +197,8 @@ h1 strong, h2 strong { font-weight: 600; letter-spacing: -0.025em; }
 .photo--portrait { aspect-ratio: 4 / 5; }
 .photo--square { aspect-ratio: 1; }
 .photo--land { aspect-ratio: 4 / 3; }
+/* Reframe toward the right: widen the image, anchor it to the right edge, keep the faces in view (Y near the top) */
+.photo--shift-x img { width: 130%; max-width: none; margin-left: -30%; object-position: 50% 10%; }
 .aside-note { margin-top: 28px; font-size: var(--step--1); color: var(--ink-soft); max-width: var(--measure); }
 
 /* Point list with the Alkimi icon as bullet */
@@ -286,6 +292,8 @@ h1 strong, h2 strong { font-weight: 600; letter-spacing: -0.025em; }
 @keyframes cardIn { from { opacity: 0; transform: perspective(900px) rotateX(8deg) translateY(36px) scale(.96); filter: blur(8px); } to { opacity: 1; transform: none; filter: blur(0); } }
 .form-card h3 { font-size: var(--step-2); font-weight: 400; }
 .form-card .form-intro { margin-top: 10px; font-size: var(--step--1); color: #3B4148; }
+.fee-box { margin-top: 14px; padding: 12px 14px; display: grid; gap: 2px; background: #FBF3DD; border-left: 3px solid var(--gold-mid); font-size: var(--step--1); color: #3B4148; }
+.fee-box strong { font-family: var(--font-head); font-weight: 600; font-size: .95rem; color: var(--gunmetal); }
 .field { display: grid; gap: 6px; margin-top: 18px; }
 .field label, .field legend { font-size: .875rem; font-weight: 500; padding: 0; }
 .field input, .field select {
@@ -335,6 +343,8 @@ fieldset.field { border: 0; margin: 18px 0 0; padding: 0; }
   .hero__media { order: -1; }
   .hero__photo { aspect-ratio: 4 / 3.4; }
   .hero__mark { width: 190vw; left: -20%; top: 2%; }
+  /* Kids: mirror the mark to the right so its curves frame the photo instead of crossing the headline */
+  .theme-kids .hero__mark { left: -40%; top: -3%; transform: scaleX(-1); }
   .split--media-left > .split__media { order: 0; }
   .split__media { max-width: 520px; }
   .quotes { grid-template-columns: minmax(0, 1fr); }

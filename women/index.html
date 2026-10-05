@@ -75,6 +75,7 @@
     <div class="wrap split split--media-left">
       <div>
         <h2 class="h2 reveal">A space to start <strong>on your own terms</strong></h2>
+        
         <ul class="points"><li><svg viewBox="0 0 218.40 121.85" fill="currentColor" aria-hidden="true"><use href="#alk-icon"/></svg><span>A women-only class, with other women at the same stage of learning as you</span></li><li><svg viewBox="0 0 218.40 121.85" fill="currentColor" aria-hidden="true"><use href="#alk-icon"/></svg><span>No heavy sparring in the first few weeks, you set the pace</span></li><li><svg viewBox="0 0 218.40 121.85" fill="currentColor" aria-hidden="true"><use href="#alk-icon"/></svg><span>Focus on real self defense, not choreography</span></li><li><svg viewBox="0 0 218.40 121.85" fill="currentColor" aria-hidden="true"><use href="#alk-icon"/></svg><span>A community of women who train together, on and off the mat</span></li></ul>
       </div>
       <div class="split__media"><div class="photo photo--land reveal-photo"><img src="../assets/img/women-class-1200.webp" srcset="../assets/img/women-class-640.webp 640w, ../assets/img/women-class-1200.webp 1200w" sizes="(max-width: 900px) min(520px, calc(100vw - 32px)), 40vw" alt="A women's class at Alkimi with a female coach guiding students through a drill." width="1200" height="900" decoding="async" loading="lazy"></div></div>
@@ -97,7 +98,7 @@
     <div class="wrap split split--media-left">
       <div>
         <h2 class="h2 reveal">What to expect at your  <strong>first class</strong></h2>
-        <ol class="steps"><li><span>Book and pay the $20 fee, this secures your spot</span></li><li><span>Arrive 10 minutes early, no need for your own gi, we lend one</span></li><li><span>Guided warmup, nobody throws you straight into sparring</span></li><li><span>Coach explains the safety rules before any technique</span></li><li><span>First technique with a partner, always supervised</span></li></ol>
+        <ol class="steps"><li><span>Send us your details using the form, and our team will call you to schedule your trial class</span></li><li><span>Arrive 10 minutes early, no need for your own gi, we lend one</span></li><li><span>Guided warmup, nobody throws you straight into sparring</span></li><li><span>Coach explains the safety rules before any technique</span></li><li><span>First technique with a partner, always supervised</span></li></ol>
         
       </div>
       <div class="split__media"><div class="photo photo--portrait reveal-photo"><img src="../assets/img/women-first-class-1000.webp" srcset="../assets/img/women-first-class-520.webp 520w, ../assets/img/women-first-class-1000.webp 1000w" sizes="(max-width: 900px) min(520px, calc(100vw - 32px)), 40vw" alt="Two training partners laughing on the mat while working a technique." width="1000" height="1250" decoding="async" loading="lazy"></div></div>
@@ -129,28 +130,31 @@
     <div class="wrap final__grid">
       <div>
         <h2 class="h2 reveal">Your first class is <strong>waiting for you</strong></h2>
-        <p class="lede reveal">Leave your details and the best time for you. We'll take it from there.</p>
+        <p class="lede reveal">Leave your details and our team will call you to schedule your first class.</p>
       </div>
       <div class="form-card reveal">
-        <form data-booking-form novalidate>
-          <h3>Book Your Trial Class ($20)</h3>
-          <p class="form-intro">Booking fee that secures your spot. Not a membership charge.</p>
+        <form data-booking-form data-webhook="" novalidate>
+          <h3>Request your trial class</h3>
+          <div class="fee-box"><strong>$20 trial class</strong><span>Holds your spot in class. Fully deducted from your monthly membership when you enroll.</span></div>
           
           <div class="field"><label for="w-name">Name</label><input id="w-name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="w-email">Email</label><input id="w-email" name="email" type="email" autocomplete="email" required></div>
           <div class="field"><label for="w-phone">Phone number</label><input id="w-phone" name="phone" type="tel" autocomplete="tel" required></div>
-          <div class="field"><label for="w-time">Best day and time</label><input id="w-time" name="best_time" placeholder="For example, Thursday evening" required></div>
           <fieldset class="field"><legend>Any prior experience?</legend>
             <div class="radio-row">
               <label><input type="radio" name="experience" value="yes" required> Yes</label>
               <label><input type="radio" name="experience" value="no"> No</label>
             </div>
           </fieldset>
-          <button class="btn btn--sheen" type="submit">Book Your Trial Class ($20)</button>
-          <p class="form-fine">We'll reach out to confirm your class time and the $20 booking fee.</p>
+          <!-- Hidden attribution fields, filled by alkimi.js from the ad click URL -->
+          <input type="hidden" name="lp" value="women">
+          <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_term"><input type="hidden" name="utm_content"><input type="hidden" name="gclid"><input type="hidden" name="gbraid"><input type="hidden" name="wbraid"><input type="hidden" name="fbclid"><input type="hidden" name="landing_page"><input type="hidden" name="referrer">
+          <button class="btn btn--sheen" type="submit">Send My Request</button>
+          <p class="form-fine">Our team will call you to schedule the trial class and answer any questions.</p>
         </form>
         <div class="form-done" role="status">
           <h3>Thanks, <span data-first-name>there</span>.</h3>
-          <p>We got your request. We'll reach out to confirm your class time and the $20 booking fee.</p>
+          <p>We got your details. Our team will call you soon to schedule the trial class.</p>
         </div>
       </div>
     </div>

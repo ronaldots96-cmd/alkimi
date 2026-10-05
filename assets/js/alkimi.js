@@ -68,20 +68,55 @@
     mio.observe(mq);
   });
 
-  // Booking form: prototype submit state.
-  // TODO (integration): connect to the real booking + $20 payment flow (KickSite / Acuity / Stripe) and fire the
-  // Google Ads + Meta conversion events here before showing the confirmation.
+  // Attribution: read UTMs and click IDs from the ad URL. The first values seen in the visit are kept
+  // (sessionStorage), so a reload without the query string still credits the right campaign.
+  var ATTR_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'gbraid', 'wbraid', 'fbclid'];
+  var attr = {};
+  try { attr = JSON.parse(sessionStorage.getItem('alkimi_attr') || '{}') || {}; } catch (e) { attr = {}; }
+  var qs = new URLSearchParams(window.location.search);
+  if (ATTR_KEYS.some(function (k) { return qs.get(k); })) {
+    attr = {};
+    ATTR_KEYS.forEach(function (k) { if (qs.get(k)) attr[k] = qs.get(k); });
+    attr.landing_page = window.location.href;
+    attr.referrer = document.referrer || '';
+  }
+  if (!attr.landing_page) { attr.landing_page = window.location.href; attr.referrer = document.referrer || ''; }
+  try { sessionStorage.setItem('alkimi_attr', JSON.stringify(attr)); } catch (e) {}
+
+  // Booking form: fill the hidden fields, post the lead to the webhook (n8n / Google Apps Script),
+  // then show the confirmation. URL-encoded body + no-cors = a "simple" request with no CORS preflight,
+  // which both n8n and Apps Script web apps accept.
   document.querySelectorAll('[data-booking-form]').forEach(function (form) {
+    Object.keys(attr).forEach(function (k) {
+      var f = form.querySelector('input[type="hidden"][name="' + k + '"]');
+      if (f) f.value = attr[k];
+    });
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       if (!form.reportValidity()) return;
-      var card = form.closest('.form-card');
-      var first = (form.querySelector('[name="name"]') || {}).value || '';
-      var nameSlot = card.querySelector('[data-first-name]');
-      if (nameSlot) nameSlot.textContent = first.trim().split(' ')[0] || 'there';
-      card.classList.add('is-done');
-      var done = card.querySelector('.form-done');
-      if (done) { done.setAttribute('tabindex', '-1'); done.focus(); }
+      var btn = form.querySelector('[type="submit"]');
+      if (btn) btn.disabled = true;
+
+      var data = new URLSearchParams(new FormData(form));
+      data.set('submitted_at', new Date().toISOString());
+      var hook = form.getAttribute('data-webhook');
+      var sent = hook
+        ? fetch(hook, { method: 'POST', mode: 'no-cors', keepalive: true, body: data }).catch(function () {})
+        : Promise.resolve(console.warn('[Alkimi] data-webhook is empty: lead not sent', Object.fromEntries(data)));
+
+      // For GTM: Google Ads / Meta conversion tags can fire on this event.
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'generate_lead', lp: data.get('lp') });
+
+      sent.then(function () {
+        var card = form.closest('.form-card');
+        var first = (form.querySelector('[name="name"]') || {}).value || '';
+        var nameSlot = card.querySelector('[data-first-name]');
+        if (nameSlot) nameSlot.textContent = first.trim().split(' ')[0] || 'there';
+        card.classList.add('is-done');
+        var done = card.querySelector('.form-done');
+        if (done) { done.setAttribute('tabindex', '-1'); done.focus(); }
+      });
     });
   });
 })();
