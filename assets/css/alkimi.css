@@ -166,6 +166,8 @@ h1 strong, h2 strong { font-weight: 600; letter-spacing: -0.025em; }
   width: 100%; height: 100%; object-fit: cover;
   animation: photoReveal .9s var(--ease-out) both;
 }
+/* Reframe: zoom 120% anchored to the top (less empty mat) and shifted right (keeps the student lying on the mat in view) */
+.hero__photo--reframe img { height: 120%; object-position: 75% 0; }
 /* Oversized outline of the Alkimi mark behind the hero (the device used on the brand book cover), drawn on load */
 .hero__mark { position: absolute; z-index: 0; pointer-events: none; width: min(1500px, 115vw); left: 44%; top: -2%; }
 .hero__mark svg { width: 100%; height: auto; overflow: visible; display: block; }
