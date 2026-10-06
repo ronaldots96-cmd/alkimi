@@ -83,6 +83,43 @@
   if (!attr.landing_page) { attr.landing_page = window.location.href; attr.referrer = document.referrer || ''; }
   try { sessionStorage.setItem('alkimi_attr', JSON.stringify(attr)); } catch (e) {}
 
+  // Tracking (GTM): the page context ({ lp, variant }) is pushed inline in <head> before GTM loads,
+  // so every tag, PageView included, can read it. The helpers below add the funnel events.
+  window.dataLayer = window.dataLayer || [];
+  var dl = function (o) { window.dataLayer.push(o); };
+  var ctx = function () {
+    var c = {};
+    window.dataLayer.forEach(function (e) { if (e && e.lp) { c.lp = e.lp; c.variant = e.variant || c.variant; } });
+    return c;
+  };
+  var cookie = function (n) {
+    var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)'));
+    return m ? decodeURIComponent(m[1]) : '';
+  };
+  var uuid = function () {
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (ch) {
+      var r = Math.random() * 16 | 0;
+      return (ch === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+  };
+  // E.164 for Meta Advanced Matching / Google Ads Enhanced Conversions. US numbers by default.
+  var toE164 = function (raw) {
+    var d = String(raw || '').replace(/\D/g, '');
+    if (!d) return '';
+    if (d.length === 10) return '+1' + d;
+    if (d.length === 11 && d.charAt(0) === '1') return '+' + d;
+    return '+' + d;
+  };
+
+  // CTA clicks, tagged with where on the page they sit (key metric for A/B tests).
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest && ev.target.closest('a[href="#book"]');
+    if (!a) return;
+    var where = a.closest('.nav') ? 'nav' : a.closest('.sticky-cta') ? 'sticky' : a.closest('.hero') ? 'hero' : 'section';
+    dl({ event: 'cta_click', cta_location: where, cta_text: (a.textContent || '').trim() });
+  });
+
   // Booking form: fill the hidden fields, post the lead to the webhook (n8n / Google Apps Script),
   // then show the confirmation. URL-encoded body + no-cors = a "simple" request with no CORS preflight,
   // which both n8n and Apps Script web apps accept.
@@ -91,22 +128,48 @@
       var f = form.querySelector('input[type="hidden"][name="' + k + '"]');
       if (f) f.value = attr[k];
     });
+    // First interaction with the form (start of the form funnel), once per page view.
+    form.addEventListener('focusin', function onStart() {
+      form.removeEventListener('focusin', onStart);
+      dl({ event: 'form_start' });
+    });
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       if (!form.reportValidity()) return;
       var btn = form.querySelector('[type="submit"]');
       if (btn) btn.disabled = true;
 
+      var c = ctx();
+      var eventId = uuid();
       var data = new URLSearchParams(new FormData(form));
       data.set('submitted_at', new Date().toISOString());
+      // Same event_id as the browser tags: lets the server side (CAPI / offline conversions) dedupe later.
+      data.set('event_id', eventId);
+      data.set('variant', c.variant || '');
+      // Ad-platform identifiers, so CRM stages (booked, attended, enrolled) can be sent back as conversions.
+      data.set('fbp', cookie('_fbp'));
+      data.set('fbc', cookie('_fbc'));
+      data.set('ga_client_id', cookie('_ga').split('.').slice(2).join('.'));
       var hook = form.getAttribute('data-webhook');
       var sent = hook
         ? fetch(hook, { method: 'POST', mode: 'no-cors', keepalive: true, body: data }).catch(function () {})
         : Promise.resolve(console.warn('[Alkimi] data-webhook is empty: lead not sent', Object.fromEntries(data)));
 
-      // For GTM: Google Ads / Meta conversion tags can fire on this event.
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'generate_lead', lp: data.get('lp') });
+      // For GTM: Meta Lead, GA4 generate_lead and the Google Ads conversion (with Enhanced Conversions)
+      // all fire on this event and read the user data below.
+      var fullName = (data.get('name') || '').trim().split(/\s+/);
+      dl({
+        event: 'generate_lead',
+        lp: data.get('lp') || c.lp,
+        variant: c.variant || '',
+        event_id: eventId,
+        user_data: {
+          email: (data.get('email') || '').trim().toLowerCase(),
+          phone_number: toE164(data.get('phone')),
+          first_name: (fullName[0] || '').toLowerCase(),
+          last_name: fullName.slice(1).join(' ').toLowerCase()
+        }
+      });
 
       sent.then(function () {
         var card = form.closest('.form-card');
