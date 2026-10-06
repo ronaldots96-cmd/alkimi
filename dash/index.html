@@ -4,77 +4,146 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Alkimi LPs · Tracking</title>
+<meta name="theme-color" content="#0D0F12">
+<title>Tracking · Alkimi LPs Austin</title>
+<link rel="icon" href="/assets/alkimi-icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/alkimi.css">
 <style>
-  :root { --bg:#f6f5f2; --card:#fff; --ink:#1c1c1c; --soft:#6b6b6b; --line:#e5e2dc; --gold:#b38b3f; --good:#1f7a4d; --bad:#b3261e; }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  header { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 16px; border-bottom: 1px solid var(--line); background: var(--card); }
-  h1 { font-size: 17px; margin: 0; }
-  h2 { font-size: 15px; margin: 0 0 4px; }
-  .hint { color: var(--soft); font-size: 12.5px; margin: 0 0 12px; }
-  main { max-width: 1200px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
-  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; min-width: 0; }
-  .controls { display: flex; gap: 8px; flex-wrap: wrap; }
-  input, select, button { font: inherit; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
-  button { background: var(--ink); color: #fff; border-color: var(--ink); cursor: pointer; }
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
-  .card { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
-  .card b { display: block; font-size: 22px; font-variant-numeric: tabular-nums; }
-  .card span { color: var(--soft); font-size: 12.5px; }
-  .scroll { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-  th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-  th { font-size: 12px; color: var(--soft); font-weight: 600; }
+  /* Dashboard layer on top of the Alkimi design system (tokens, fonts, .btn, chamfered cut) */
+  body { background: var(--ice); color: var(--gunmetal); --ink-soft: #3B4148; --line: rgba(13,15,18,.12); }
+  .dash-head { background: var(--gunmetal); color: var(--ice); padding-block: 22px; position: relative; overflow: hidden; }
+  .dash-head__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; position: relative; z-index: 1; }
+  .dash-brand { display: flex; align-items: center; gap: 16px; }
+  .dash-brand svg { height: 22px; width: auto; color: var(--ice); }
+  .dash-brand span { font-family: var(--font-head); font-size: var(--step--1); letter-spacing: .14em; text-transform: uppercase; color: #AEB4BC; padding-left: 16px; border-left: 1px solid rgba(248,250,255,.18); }
+  .dash-head__mark { position: absolute; right: -60px; top: -40px; width: 340px; opacity: .14; pointer-events: none; }
+  .dash-head__mark svg { width: 100%; height: auto; color: var(--gold-mid); }
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .controls input, .controls select {
+    font: inherit; font-size: .95rem; padding: 11px 14px; border-radius: 0; min-width: 0;
+    background: rgba(248,250,255,.06); color: var(--ice); border: 1px solid rgba(248,250,255,.2);
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .controls input { width: 220px; }
+  .controls input::placeholder { color: #8A929B; }
+  .controls select option { color: var(--gunmetal); }
+  .controls input:focus, .controls select:focus { outline: none; border-color: var(--gold-mid); box-shadow: 0 0 0 3px rgba(201,168,98,.3); }
+  .controls .btn { padding: 12px 22px; font-size: .95rem; }
+
+  main { display: grid; gap: 24px; padding-block: 32px 64px; }
+  .status { font-size: var(--step--1); color: var(--ink-soft); }
+  .status.err { color: var(--rose-deep); font-weight: 600; }
+
+  .panel {
+    background: #fff; padding: clamp(20px, 3vw, 32px); min-width: 0; position: relative;
+    clip-path: polygon(0 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% 100%, var(--cut) 100%, 0 calc(100% - var(--cut)));
+    box-shadow: inset 0 0 0 1px var(--line);
+  }
+  .panel h2 { font-size: var(--step-2); }
+  .panel .hint { margin-top: 8px; margin-bottom: 18px; font-size: var(--step--1); color: var(--ink-soft); max-width: 60rem; }
+  .panel .hint code { font-size: .85em; background: var(--gray); padding: 1px 5px; }
+  .eyebrow { display: block; font-family: var(--font-head); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-lo); margin-bottom: 8px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-top: 18px; }
+  .kpi { background: var(--ice); padding: 18px 18px 16px; border-top: 2px solid var(--gold-mid); }
+  .kpi b { display: block; font-family: var(--font-head); font-weight: 300; font-size: var(--step-3); line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .kpi span { display: block; margin-top: 10px; font-size: var(--step--1); color: var(--ink-soft); line-height: 1.4; }
+
+  .scroll { overflow-x: auto; margin-inline: -4px; padding-inline: 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th { font-family: var(--font-head); font-size: .7rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
   td.num, th.num { text-align: right; }
-  .group td { background: #faf8f4; font-weight: 600; }
-  .good { color: var(--good); font-weight: 600; }
-  .bad { color: var(--bad); font-weight: 600; }
-  .muted { color: var(--soft); }
-  .err { color: var(--bad); }
+  tbody tr:hover td { background: rgba(201,168,98,.07); }
+  tr.group td { background: var(--jungle); color: var(--ice); font-family: var(--font-head); font-weight: 500; font-size: .85rem; letter-spacing: .02em; }
+  tr.group td small { color: #C4CEC9; font-weight: 400; margin-left: 6px; }
+  .good { color: var(--jungle); font-weight: 600; }
+  .bad { color: var(--rose-deep); font-weight: 600; }
+  .muted { color: var(--ink-soft); }
+  .tag { display: inline-block; font-size: .72rem; font-family: var(--font-head); letter-spacing: .06em; padding: 2px 7px; background: var(--gray); color: var(--ink-soft); margin-left: 6px; }
+  .empty { padding: 18px 0; color: var(--ink-soft); }
+
+  .dash-foot { padding-block: 28px; font-size: var(--step--1); color: #AEB4BC; }
+  .dash-foot svg { height: 16px; width: auto; color: var(--ice); vertical-align: middle; margin-right: 10px; }
+
+  @media (max-width: 640px) {
+    .dash-brand span { white-space: nowrap; font-size: .68rem; letter-spacing: .1em; padding-left: 12px; }
+    .dash-brand { gap: 12px; }
+    .dash-brand svg { height: 18px; }
+    .controls { width: 100%; }
+    .controls input { flex: 1 1 100%; width: auto; }
+    .controls select, .controls .btn { flex: 1 1 auto; }
+  }
 </style>
 </head>
 <body>
-<header>
-  <h1>Alkimi LPs · Tracking</h1>
-  <div class="controls">
-    <input id="key" type="password" placeholder="DASH_KEY" autocomplete="off" aria-label="Chave do dashboard">
-    <select id="days" aria-label="Período">
-      <option value="7">7 dias</option><option value="30" selected>30 dias</option><option value="90">90 dias</option>
-    </select>
-    <button id="load" type="button">Carregar</button>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="goldStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F9E199"/><stop offset=".55" stop-color="#D9BC7A"/><stop offset="1" stop-color="#795D31"/>
+    </linearGradient>
+  </defs>
+  <symbol id="alk-logo" viewBox="27.21 930.00 942.79 121.85"><path d="M 312.070312 1024.105469 L 312.070312 1003.898438 L 389.960938 1003.898438 L 389.960938 1024.105469 Z M 282.78125 1049.765625 L 338.101562 932.011719 L 364.3125 932.011719 L 420.179688 1049.765625 L 393.792969 1049.765625 L 345.386719 943.664062 L 357.039062 943.664062 L 308.988281 1049.765625 Z M 282.78125 1049.765625 "/><path d="M 456.046875 932.011719 L 456.046875 1029.5625 L 534.300781 1029.5625 L 534.300781 1049.765625 L 431.84375 1049.765625 L 431.84375 932.011719 Z M 456.046875 932.011719 "/><path d="M 601.738281 992.4375 L 601.5625 982.246094 L 680.910156 1049.765625 L 645.96875 1049.765625 L 575.355469 987.882812 L 638.140625 932.011719 L 672.535156 932.011719 Z M 551.328125 932.011719 L 575.53125 932.011719 L 575.53125 1049.765625 L 551.328125 1049.765625 Z M 551.328125 932.011719 "/><path d="M 695.769531 932.011719 L 719.972656 932.011719 L 719.972656 1049.765625 L 695.769531 1049.765625 Z M 695.769531 932.011719 "/><path d="M 837.410156 1037.761719 L 825.949219 1037.761719 L 893.644531 932.011719 L 917.847656 932.011719 L 917.847656 1049.765625 L 893.644531 1049.765625 L 893.644531 964.226562 L 899.472656 965.863281 L 845.417969 1049.765625 L 818.296875 1049.765625 L 764.242188 966.230469 L 770.066406 964.59375 L 770.066406 1049.765625 L 745.863281 1049.765625 L 745.863281 932.011719 L 770.066406 932.011719 L 837.410156 1037.746094 Z M 837.410156 1037.761719 "/><path d="M 943.796875 932.011719 L 968 932.011719 L 968 1049.765625 L 943.796875 1049.765625 Z M 943.796875 932.011719 "/><path d="M 154.890625 988.878906 C 151.453125 992.261719 150.390625 996.980469 152.191406 1001.457031 C 153.992188 1005.957031 158.109375 1008.726562 162.898438 1008.726562 L 206.558594 1008.726562 C 209.136719 1008.726562 211.671875 1009.804688 213.527344 1011.621094 L 241.457031 1039.917969 C 243.132812 1041.59375 243.613281 1043.980469 242.726562 1046.179688 C 241.839844 1048.375 239.820312 1049.738281 237.472656 1049.738281 L 154.003906 1049.738281 C 152.285156 1049.78125 150.128906 1049.847656 148.792969 1048.414062 C 147.675781 1047.203125 147.074219 1045.484375 147.210938 1041.757812 L 147.210938 1012.179688 C 147.210938 1005.726562 142.011719 1000.488281 135.628906 1000.488281 L 80.808594 1001.007812 C 78.300781 1001.035156 76.101562 1002.480469 75.09375 1004.785156 C 74.054688 1007.089844 74.464844 1009.710938 76.128906 1011.605469 L 97.097656 1035.589844 C 99.308594 1038.128906 99.855469 1041.648438 98.476562 1044.800781 C 97.140625 1047.84375 94.453125 1049.683594 91.246094 1049.726562 L 39.949219 1049.726562 C 35.84375 1049.726562 32.308594 1047.351562 30.765625 1043.519531 C 29.210938 1039.699219 30.058594 1035.523438 32.976562 1032.617188 L 101.832031 964.46875 L 131.945312 935.097656 C 133.800781 933.269531 136.269531 932 138.875 932 L 192.449219 932 C 196.597656 932.011719 199.460938 933.105469 200.773438 936.367188 C 201.863281 939.09375 201.945312 942.21875 199.707031 944.824219 C 198.875 945.792969 198.179688 946.421875 197.320312 947.320312 L 158.070312 985.792969 Z M 154.890625 988.878906 "/></symbol>
+  <symbol id="alk-icon" viewBox="27.21 930.00 218.40 121.85"><path d="M 154.890625 988.878906 C 151.453125 992.261719 150.390625 996.980469 152.191406 1001.457031 C 153.992188 1005.957031 158.109375 1008.726562 162.898438 1008.726562 L 206.558594 1008.726562 C 209.136719 1008.726562 211.671875 1009.804688 213.527344 1011.621094 L 241.457031 1039.917969 C 243.132812 1041.59375 243.613281 1043.980469 242.726562 1046.179688 C 241.839844 1048.375 239.820312 1049.738281 237.472656 1049.738281 L 154.003906 1049.738281 C 152.285156 1049.78125 150.128906 1049.847656 148.792969 1048.414062 C 147.675781 1047.203125 147.074219 1045.484375 147.210938 1041.757812 L 147.210938 1012.179688 C 147.210938 1005.726562 142.011719 1000.488281 135.628906 1000.488281 L 80.808594 1001.007812 C 78.300781 1001.035156 76.101562 1002.480469 75.09375 1004.785156 C 74.054688 1007.089844 74.464844 1009.710938 76.128906 1011.605469 L 97.097656 1035.589844 C 99.308594 1038.128906 99.855469 1041.648438 98.476562 1044.800781 C 97.140625 1047.84375 94.453125 1049.683594 91.246094 1049.726562 L 39.949219 1049.726562 C 35.84375 1049.726562 32.308594 1047.351562 30.765625 1043.519531 C 29.210938 1039.699219 30.058594 1035.523438 32.976562 1032.617188 L 101.832031 964.46875 L 131.945312 935.097656 C 133.800781 933.269531 136.269531 932 138.875 932 L 192.449219 932 C 196.597656 932.011719 199.460938 933.105469 200.773438 936.367188 C 201.863281 939.09375 201.945312 942.21875 199.707031 944.824219 C 198.875 945.792969 198.179688 946.421875 197.320312 947.320312 L 158.070312 985.792969 Z M 154.890625 988.878906 "/></symbol>
+</svg>
+<header class="dash-head">
+  <div class="dash-head__mark" aria-hidden="true"><svg viewBox="0 0 218.40 121.85" fill="currentColor"><use href="#alk-icon"/></svg></div>
+  <div class="wrap dash-head__inner">
+    <div class="dash-brand">
+      <svg viewBox="0 0 942.79 121.85" fill="currentColor" role="img" aria-label="Alkimi Jiu-Jitsu"><use href="#alk-logo"/></svg>
+      <span>Tracking · LPs Austin</span>
+    </div>
+    <div class="controls">
+      <input id="key" type="password" placeholder="Chave do painel" autocomplete="off" aria-label="Chave do painel">
+      <select id="days" aria-label="Período">
+        <option value="7">7 dias</option><option value="30" selected>30 dias</option><option value="90">90 dias</option>
+      </select>
+      <button id="load" class="btn" type="button">Carregar</button>
+    </div>
   </div>
 </header>
-<main>
-  <p id="status" class="muted">Informe a chave e clique em Carregar.</p>
 
-  <section>
-    <h2>Testes A/B</h2>
+<main class="wrap">
+  <p id="status" class="status">Informe a chave e clique em Carregar.</p>
+
+  <section class="panel">
+    <span class="eyebrow">Experimentos</span>
+    <h2>Testes <strong>A/B</strong></h2>
     <p class="hint">Visitantes únicos por página e versão no período; conversão = leads ÷ visitantes. Bots e visitas de QA (<code>?ab=</code>) ficam de fora. Confiança = chance de a diferença para o controle não ser acaso (teste z de duas proporções). Só decida acima de 95% e com pelo menos ~100 leads por versão.</p>
     <div class="scroll"><table id="ab"></table></div>
   </section>
 
-  <section>
-    <h2>Saúde do tracking (leads)</h2>
+  <section class="panel">
+    <span class="eyebrow">Qualidade dos dados</span>
+    <h2>Saúde do <strong>tracking</strong></h2>
     <div class="cards" id="health"></div>
   </section>
 
-  <section>
-    <h2>Origem</h2>
+  <section class="panel">
+    <span class="eyebrow">Aquisição</span>
+    <h2><strong>Origem</strong> dos visitantes</h2>
     <p class="hint">Primeira UTM com que o visitante chegou em cada página.</p>
     <div class="scroll"><table id="sources"></table></div>
   </section>
 
-  <section>
-    <h2>Últimos leads</h2>
+  <section class="panel">
+    <span class="eyebrow">Leads</span>
+    <h2>Últimos <strong>leads</strong></h2>
+    <p class="hint">Passe o mouse sobre uma falha da Meta CAPI para ver a resposta da API.</p>
     <div class="scroll"><table id="recent"></table></div>
   </section>
 </main>
+
+<footer class="band--gunmetal dash-foot">
+  <div class="wrap"><svg viewBox="0 0 942.79 121.85" fill="currentColor" aria-hidden="true"><use href="#alk-logo"/></svg>Alkimi by Meregali · painel interno</div>
+</footer>
+
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   var pct = function (x) { return isFinite(x) ? (x * 100).toFixed(1) + '%' : '–'; };
+  var empty = function (cols, msg) { return '<tr><td class="empty" colspan="' + cols + '">' + msg + '</td></tr>'; };
   try { $('key').value = sessionStorage.getItem('alk_dash_key') || ''; } catch (e) {}
 
   // Two-proportion z-test → two-sided confidence that the rates differ.
@@ -99,11 +168,12 @@
     });
     var groups = {};
     Object.keys(rows).forEach(function (k) { var r = rows[k], g = r.lp + '|' + r.experiment; (groups[g] = groups[g] || []).push(r); });
-    var html = '<tr><th>Versão</th><th class="num">Visitantes</th><th class="num">Leads</th><th class="num">Conversão</th><th class="num">Lift vs controle</th><th class="num">Confiança</th></tr>';
+    var head = '<thead><tr><th>Versão</th><th class="num">Visitantes</th><th class="num">Leads</th><th class="num">Conversão</th><th class="num">Lift vs controle</th><th class="num">Confiança</th></tr></thead>';
+    var body = '';
     Object.keys(groups).sort().forEach(function (g) {
       var list = groups[g].sort(function (a, b) { return a.variant === 'control' ? -1 : b.variant === 'control' ? 1 : a.variant.localeCompare(b.variant); });
       var first = list[0];
-      html += '<tr class="group"><td colspan="6">' + esc(first.lp) + ' · ' + (first.experiment ? esc(first.experiment) : 'sem teste') + '</td></tr>';
+      body += '<tr class="group"><td colspan="6">' + esc(first.lp) + '<small>' + (first.experiment ? esc(first.experiment) : 'sem teste rodando') + '</small></td></tr>';
       var ctrl = list.find(function (r) { return r.variant === 'control'; });
       list.forEach(function (r) {
         var rate = r.visitors ? r.leads / r.visitors : NaN, lift = '–', conf = '–';
@@ -113,43 +183,43 @@
           var c = confidence(ctrl.leads, ctrl.visitors, r.leads, r.visitors);
           conf = isFinite(c) ? '<span class="' + (c >= 0.95 ? 'good' : 'muted') + '">' + pct(c) + '</span>' : '–';
         }
-        html += '<tr><td>' + esc(r.variant) + '</td><td class="num">' + r.visitors + '</td><td class="num">' + r.leads + '</td><td class="num">' + pct(rate) + '</td><td class="num">' + lift + '</td><td class="num">' + conf + '</td></tr>';
+        body += '<tr><td>' + esc(r.variant) + '</td><td class="num">' + r.visitors + '</td><td class="num">' + r.leads + '</td><td class="num">' + pct(rate) + '</td><td class="num">' + lift + '</td><td class="num">' + conf + '</td></tr>';
       });
     });
-    $('ab').innerHTML = Object.keys(groups).length ? html : '<tr><td class="muted">Sem dados no período.</td></tr>';
+    $('ab').innerHTML = head + '<tbody>' + (body || empty(6, 'Sem dados no período.')) + '</tbody>';
   }
 
   function renderHealth(h) {
     var leads = h.leads || 0;
     var cards = [
-      [leads, 'leads (incl. bots: ' + (h.bots || 0) + ')'],
-      [leads ? pct((h.meta_ok || 0) / leads) : '–', 'aceitos pela Meta CAPI'],
-      [h.pixel_missing || 0, 'leads sem pixel no navegador (salvos pelo servidor)'],
-      [leads ? pct((h.with_fbc || 0) / leads) : '–', 'leads com clique do Meta (fbc)']
+      [leads, 'leads no período (incl. ' + (h.bots || 0) + ' de bots)'],
+      [leads ? pct((h.meta_ok || 0) / leads) : '–', 'aceitos pela Meta Conversions API'],
+      [h.pixel_missing || 0, 'leads sem pixel no navegador, salvos pelo servidor'],
+      [leads ? pct((h.with_fbc || 0) / leads) : '–', 'leads com clique de anúncio do Meta (fbc)']
     ];
-    $('health').innerHTML = cards.map(function (c) { return '<div class="card"><b>' + c[0] + '</b><span>' + c[1] + '</span></div>'; }).join('');
+    $('health').innerHTML = cards.map(function (c) { return '<div class="kpi"><b>' + c[0] + '</b><span>' + c[1] + '</span></div>'; }).join('');
   }
 
   function renderSources(list) {
-    var html = '<tr><th>Página</th><th>utm_source</th><th>utm_campaign</th><th class="num">Visitantes</th><th class="num">Leads</th><th class="num">Conversão</th></tr>';
-    list.forEach(function (r) {
-      html += '<tr><td>' + esc(r.lp) + '</td><td>' + esc(r.source) + '</td><td>' + esc(r.campaign) + '</td><td class="num">' + r.visitors + '</td><td class="num">' + r.leads + '</td><td class="num">' + pct(r.visitors ? r.leads / r.visitors : NaN) + '</td></tr>';
-    });
-    $('sources').innerHTML = list.length ? html : '<tr><td class="muted">Sem dados no período.</td></tr>';
+    var head = '<thead><tr><th>Página</th><th>utm_source</th><th>utm_campaign</th><th class="num">Visitantes</th><th class="num">Leads</th><th class="num">Conversão</th></tr></thead>';
+    var body = list.map(function (r) {
+      return '<tr><td>' + esc(r.lp) + '</td><td>' + esc(r.source) + '</td><td>' + esc(r.campaign) + '</td><td class="num">' + r.visitors + '</td><td class="num">' + r.leads + '</td><td class="num">' + pct(r.visitors ? r.leads / r.visitors : NaN) + '</td></tr>';
+    }).join('');
+    $('sources').innerHTML = head + '<tbody>' + (body || empty(6, 'Sem dados no período.')) + '</tbody>';
   }
 
   function renderRecent(list) {
-    var html = '<tr><th>Quando</th><th>Página</th><th>Versão</th><th>E-mail</th><th>Origem</th><th>Campanha</th><th>Dispositivo</th><th>Pixel</th><th>Meta CAPI</th></tr>';
-    list.forEach(function (r) {
+    var head = '<thead><tr><th>Quando</th><th>Página</th><th>Versão</th><th>E-mail</th><th>Origem</th><th>Campanha</th><th>Dispositivo</th><th>Pixel</th><th>Meta CAPI</th></tr></thead>';
+    var body = list.map(function (r) {
       var when = new Date(r.timestamp * 1000).toLocaleString('pt-BR');
       var skipped = !r.meta_status_code && /^skipped/.test(r.meta_response_body || '');
       var meta = r.meta_response_ok ? '<span class="good">ok</span>'
         : r.is_bot ? '<span class="muted">bot</span>'
         : skipped ? '<span class="muted" title="' + esc(r.meta_response_body) + '">não configurado</span>'
         : '<span class="bad" title="' + esc(r.meta_response_body) + '">' + (r.meta_status_code || 'falhou') + '</span>';
-      html += '<tr><td>' + when + '</td><td>' + esc(r.lp) + '</td><td>' + esc((r.experiment ? r.experiment + ' · ' : '') + r.variant) + (r.is_qa ? ' <span class="muted">(QA)</span>' : '') + '</td><td>' + esc(r.raw_email) + '</td><td>' + esc(r.utm_source || '(direct)') + (r.has_gclid ? ' · gclid' : '') + (r.has_fbc ? ' · fbc' : '') + '</td><td>' + esc(r.utm_campaign) + '</td><td>' + esc(r.browser + ' / ' + r.os) + '</td><td>' + (r.pixel_loaded ? 'sim' : '<span class="bad">não</span>') + '</td><td>' + meta + '</td></tr>';
-    });
-    $('recent').innerHTML = list.length ? html : '<tr><td class="muted">Nenhum lead no período.</td></tr>';
+      return '<tr><td>' + when + '</td><td>' + esc(r.lp) + '</td><td>' + esc((r.experiment ? r.experiment + ' · ' : '') + r.variant) + (r.is_qa ? '<span class="tag">QA</span>' : '') + '</td><td>' + esc(r.raw_email) + '</td><td>' + esc(r.utm_source || '(direct)') + (r.has_gclid ? '<span class="tag">gclid</span>' : '') + (r.has_fbc ? '<span class="tag">fbc</span>' : '') + '</td><td>' + esc(r.utm_campaign) + '</td><td>' + esc(r.browser + ' / ' + r.os) + '</td><td>' + (r.pixel_loaded ? 'sim' : '<span class="bad">não</span>') + '</td><td>' + meta + '</td></tr>';
+    }).join('');
+    $('recent').innerHTML = head + '<tbody>' + (body || empty(9, 'Nenhum lead no período.')) + '</tbody>';
   }
 
   function load() {
@@ -157,16 +227,17 @@
     if (!key) return;
     try { sessionStorage.setItem('alk_dash_key', key); } catch (e) {}
     $('status').textContent = 'Carregando…';
-    $('status').className = 'muted';
+    $('status').className = 'status';
     fetch('/api/report?days=' + $('days').value, { headers: { 'X-Dash-Key': key } })
       .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || r.status); return j; }); })
       .then(function (d) {
         renderAB(d); renderHealth(d.health); renderSources(d.sources); renderRecent(d.recent);
-        $('status').textContent = 'Atualizado ' + new Date().toLocaleTimeString('pt-BR') + ' · últimos ' + d.days + ' dias';
+        $('status').textContent = 'Atualizado às ' + new Date().toLocaleTimeString('pt-BR') + ' · últimos ' + d.days + ' dias';
       })
-      .catch(function (e) { $('status').textContent = 'Erro: ' + e.message; $('status').className = 'err'; });
+      .catch(function (e) { $('status').textContent = 'Erro: ' + e.message; $('status').className = 'status err'; });
   }
   $('load').addEventListener('click', load);
+  $('key').addEventListener('keydown', function (e) { if (e.key === 'Enter') load(); });
   $('days').addEventListener('change', load);
   if ($('key').value) load();
 })();
