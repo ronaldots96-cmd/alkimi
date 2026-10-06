@@ -22,12 +22,12 @@ Toda tag lê os dados do `dataLayer`, nunca dos campos do formulário.
 
 | Quando | Push |
 |---|---|
-| No `<head>`, antes do GTM | `{ lp: 'kids' \| 'women', variant: 'control' }` |
+| No `<head>`, antes do GTM | `{ lp: 'kids' \| 'women', experiment, variant }`: `variant` = `default` sem teste, ou `<experimento>:<versão>` (ex.: `kids-hero-2026-10:b`) |
 | Clique em qualquer CTA para o formulário | `{ event: 'cta_click', cta_location: 'nav' \| 'hero' \| 'sticky' \| 'section', cta_text }` |
 | Primeira interação com o formulário | `{ event: 'form_start' }` |
 | Envio do formulário | `{ event: 'generate_lead', lp, variant, event_id, user_data: { email, phone_number (E.164), first_name, last_name } }` |
 
-`variant` hoje é sempre `control`. Ele passa a ser definido pelo teste A/B na Cloudflare (etapa 2).
+A versão é sorteada na Cloudflare: ver `tracking/README.md`.
 
 ## Tags
 

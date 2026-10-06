@@ -1,0 +1,6 @@
+# Local Cloudflare tooling and secrets
+.wrangler/
+.dev.vars
+node_modules/
+# Bindings are configured in the Cloudflare dashboard; a committed wrangler.toml would take over that config
+wrangler.toml

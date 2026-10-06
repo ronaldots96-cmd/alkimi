@@ -83,14 +83,20 @@
   if (!attr.landing_page) { attr.landing_page = window.location.href; attr.referrer = document.referrer || ''; }
   try { sessionStorage.setItem('alkimi_attr', JSON.stringify(attr)); } catch (e) {}
 
-  // Tracking (GTM): the page context ({ lp, variant }) is pushed inline in <head> before GTM loads,
-  // so every tag, PageView included, can read it. The helpers below add the funnel events.
+  // Tracking (GTM): the page context ({ lp, experiment, variant }) is pushed inline in <head> before GTM
+  // loads, so every tag, PageView included, can read it. The helpers below add the funnel events.
+  // A/B: the edge middleware stamps <html data-experiment data-variant> (tracking/edge/experiments.js).
   window.dataLayer = window.dataLayer || [];
   var dl = function (o) { window.dataLayer.push(o); };
   var ctx = function () {
     var c = {};
     window.dataLayer.forEach(function (e) { if (e && e.lp) { c.lp = e.lp; c.variant = e.variant || c.variant; } });
     return c;
+  };
+  var AB = {
+    experiment: document.documentElement.getAttribute('data-experiment') || '',
+    variant: document.documentElement.getAttribute('data-variant') || 'default',
+    qa: document.documentElement.hasAttribute('data-ab-qa')
   };
   var cookie = function (n) {
     var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)'));
@@ -145,7 +151,8 @@
       data.set('submitted_at', new Date().toISOString());
       // Same event_id as the browser tags: lets the server side (CAPI / offline conversions) dedupe later.
       data.set('event_id', eventId);
-      data.set('variant', c.variant || '');
+      data.set('experiment', AB.experiment);
+      data.set('variant', AB.variant);
       // Ad-platform identifiers, so CRM stages (booked, attended, enrolled) can be sent back as conversions.
       data.set('fbp', cookie('_fbp'));
       data.set('fbc', cookie('_fbc'));
@@ -170,6 +177,24 @@
           last_name: fullName.slice(1).join(' ').toLowerCase()
         }
       });
+
+      // Server-side copy of the Lead (functions/tracker.js): Meta CAPI with the same event_id, so Meta
+      // dedupes it against the pixel and still counts the lead when the pixel is blocked. Logged in D1.
+      try {
+        fetch('/tracker', {
+          method: 'POST',
+          keepalive: true,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event_name: 'Lead',
+            event_id: eventId,
+            event_time: Math.floor(Date.now() / 1000),
+            event_source_url: window.location.href,
+            user_data: { em: data.get('email') || '', ph: toE164(data.get('phone')), fn: fullName[0] || '', ln: fullName.slice(1).join(' ') },
+            custom_data: { lp: data.get('lp') || c.lp, experiment: AB.experiment, variant: AB.variant, qa: AB.qa, pixel_loaded: typeof window.fbq === 'function' }
+          })
+        }).catch(function () {});
+      } catch (e) {}
 
       sent.then(function () {
         var card = form.closest('.form-card');

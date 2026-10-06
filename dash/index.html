@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Alkimi LPs · Tracking</title>
+<style>
+  :root { --bg:#f6f5f2; --card:#fff; --ink:#1c1c1c; --soft:#6b6b6b; --line:#e5e2dc; --gold:#b38b3f; --good:#1f7a4d; --bad:#b3261e; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 16px; border-bottom: 1px solid var(--line); background: var(--card); }
+  h1 { font-size: 17px; margin: 0; }
+  h2 { font-size: 15px; margin: 0 0 4px; }
+  .hint { color: var(--soft); font-size: 12.5px; margin: 0 0 12px; }
+  main { max-width: 1200px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px; min-width: 0; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; }
+  input, select, button { font: inherit; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+  button { background: var(--ink); color: #fff; border-color: var(--ink); cursor: pointer; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; }
+  .card { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .card b { display: block; font-size: 22px; font-variant-numeric: tabular-nums; }
+  .card span { color: var(--soft); font-size: 12.5px; }
+  .scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th { font-size: 12px; color: var(--soft); font-weight: 600; }
+  td.num, th.num { text-align: right; }
+  .group td { background: #faf8f4; font-weight: 600; }
+  .good { color: var(--good); font-weight: 600; }
+  .bad { color: var(--bad); font-weight: 600; }
+  .muted { color: var(--soft); }
+  .err { color: var(--bad); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Alkimi LPs · Tracking</h1>
+  <div class="controls">
+    <input id="key" type="password" placeholder="DASH_KEY" autocomplete="off" aria-label="Chave do dashboard">
+    <select id="days" aria-label="Período">
+      <option value="7">7 dias</option><option value="30" selected>30 dias</option><option value="90">90 dias</option>
+    </select>
+    <button id="load" type="button">Carregar</button>
+  </div>
+</header>
+<main>
+  <p id="status" class="muted">Informe a chave e clique em Carregar.</p>
+
+  <section>
+    <h2>Testes A/B</h2>
+    <p class="hint">Visitantes únicos por página e versão no período; conversão = leads ÷ visitantes. Bots e visitas de QA (<code>?ab=</code>) ficam de fora. Confiança = chance de a diferença para o controle não ser acaso (teste z de duas proporções). Só decida acima de 95% e com pelo menos ~100 leads por versão.</p>
+    <div class="scroll"><table id="ab"></table></div>
+  </section>
+
+  <section>
+    <h2>Saúde do tracking (leads)</h2>
+    <div class="cards" id="health"></div>
+  </section>
+
+  <section>
+    <h2>Origem</h2>
+    <p class="hint">Primeira UTM com que o visitante chegou em cada página.</p>
+    <div class="scroll"><table id="sources"></table></div>
+  </section>
+
+  <section>
+    <h2>Últimos leads</h2>
+    <div class="scroll"><table id="recent"></table></div>
+  </section>
+</main>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  var pct = function (x) { return isFinite(x) ? (x * 100).toFixed(1) + '%' : '–'; };
+  try { $('key').value = sessionStorage.getItem('alk_dash_key') || ''; } catch (e) {}
+
+  // Two-proportion z-test → two-sided confidence that the rates differ.
+  function confidence(c1, n1, c2, n2) {
+    if (!n1 || !n2) return NaN;
+    var p = (c1 + c2) / (n1 + n2), se = Math.sqrt(p * (1 - p) * (1 / n1 + 1 / n2));
+    if (!se) return NaN;
+    var z = Math.abs(c2 / n2 - c1 / n1) / se;
+    // Normal CDF (Abramowitz-Stegun 26.2.17)
+    var t = 1 / (1 + 0.2316419 * z), d = 0.3989423 * Math.exp(-z * z / 2);
+    var tail = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+    return 1 - 2 * tail;
+  }
+
+  function renderAB(data) {
+    var rows = {};
+    data.visitors.forEach(function (r) { var k = r.lp + '|' + r.experiment + '|' + r.variant; rows[k] = { lp: r.lp, experiment: r.experiment, variant: r.variant, visitors: r.visitors, leads: 0 }; });
+    data.leads.forEach(function (r) {
+      var k = r.lp + '|' + r.experiment + '|' + r.variant;
+      if (!rows[k]) rows[k] = { lp: r.lp, experiment: r.experiment, variant: r.variant, visitors: 0, leads: 0 };
+      rows[k].leads = r.leads;
+    });
+    var groups = {};
+    Object.keys(rows).forEach(function (k) { var r = rows[k], g = r.lp + '|' + r.experiment; (groups[g] = groups[g] || []).push(r); });
+    var html = '<tr><th>Versão</th><th class="num">Visitantes</th><th class="num">Leads</th><th class="num">Conversão</th><th class="num">Lift vs controle</th><th class="num">Confiança</th></tr>';
+    Object.keys(groups).sort().forEach(function (g) {
+      var list = groups[g].sort(function (a, b) { return a.variant === 'control' ? -1 : b.variant === 'control' ? 1 : a.variant.localeCompare(b.variant); });
+      var first = list[0];
+      html += '<tr class="group"><td colspan="6">' + esc(first.lp) + ' · ' + (first.experiment ? esc(first.experiment) : 'sem teste') + '</td></tr>';
+      var ctrl = list.find(function (r) { return r.variant === 'control'; });
+      list.forEach(function (r) {
+        var rate = r.visitors ? r.leads / r.visitors : NaN, lift = '–', conf = '–';
+        if (ctrl && r !== ctrl && ctrl.visitors && ctrl.leads) {
+          var base = ctrl.leads / ctrl.visitors, l = rate / base - 1;
+          lift = '<span class="' + (l >= 0 ? 'good' : 'bad') + '">' + (l >= 0 ? '+' : '') + pct(l) + '</span>';
+          var c = confidence(ctrl.leads, ctrl.visitors, r.leads, r.visitors);
+          conf = isFinite(c) ? '<span class="' + (c >= 0.95 ? 'good' : 'muted') + '">' + pct(c) + '</span>' : '–';
+        }
+        html += '<tr><td>' + esc(r.variant) + '</td><td class="num">' + r.visitors + '</td><td class="num">' + r.leads + '</td><td class="num">' + pct(rate) + '</td><td class="num">' + lift + '</td><td class="num">' + conf + '</td></tr>';
+      });
+    });
+    $('ab').innerHTML = Object.keys(groups).length ? html : '<tr><td class="muted">Sem dados no período.</td></tr>';
+  }
+
+  function renderHealth(h) {
+    var leads = h.leads || 0;
+    var cards = [
+      [leads, 'leads (incl. bots: ' + (h.bots || 0) + ')'],
+      [leads ? pct((h.meta_ok || 0) / leads) : '–', 'aceitos pela Meta CAPI'],
+      [h.pixel_missing || 0, 'leads sem pixel no navegador (salvos pelo servidor)'],
+      [leads ? pct((h.with_fbc || 0) / leads) : '–', 'leads com clique do Meta (fbc)']
+    ];
+    $('health').innerHTML = cards.map(function (c) { return '<div class="card"><b>' + c[0] + '</b><span>' + c[1] + '</span></div>'; }).join('');
+  }
+
+  function renderSources(list) {
+    var html = '<tr><th>Página</th><th>utm_source</th><th>utm_campaign</th><th class="num">Visitantes</th><th class="num">Leads</th><th class="num">Conversão</th></tr>';
+    list.forEach(function (r) {
+      html += '<tr><td>' + esc(r.lp) + '</td><td>' + esc(r.source) + '</td><td>' + esc(r.campaign) + '</td><td class="num">' + r.visitors + '</td><td class="num">' + r.leads + '</td><td class="num">' + pct(r.visitors ? r.leads / r.visitors : NaN) + '</td></tr>';
+    });
+    $('sources').innerHTML = list.length ? html : '<tr><td class="muted">Sem dados no período.</td></tr>';
+  }
+
+  function renderRecent(list) {
+    var html = '<tr><th>Quando</th><th>Página</th><th>Versão</th><th>E-mail</th><th>Origem</th><th>Campanha</th><th>Dispositivo</th><th>Pixel</th><th>Meta CAPI</th></tr>';
+    list.forEach(function (r) {
+      var when = new Date(r.timestamp * 1000).toLocaleString('pt-BR');
+      var skipped = !r.meta_status_code && /^skipped/.test(r.meta_response_body || '');
+      var meta = r.meta_response_ok ? '<span class="good">ok</span>'
+        : r.is_bot ? '<span class="muted">bot</span>'
+        : skipped ? '<span class="muted" title="' + esc(r.meta_response_body) + '">não configurado</span>'
+        : '<span class="bad" title="' + esc(r.meta_response_body) + '">' + (r.meta_status_code || 'falhou') + '</span>';
+      html += '<tr><td>' + when + '</td><td>' + esc(r.lp) + '</td><td>' + esc((r.experiment ? r.experiment + ' · ' : '') + r.variant) + (r.is_qa ? ' <span class="muted">(QA)</span>' : '') + '</td><td>' + esc(r.raw_email) + '</td><td>' + esc(r.utm_source || '(direct)') + (r.has_gclid ? ' · gclid' : '') + (r.has_fbc ? ' · fbc' : '') + '</td><td>' + esc(r.utm_campaign) + '</td><td>' + esc(r.browser + ' / ' + r.os) + '</td><td>' + (r.pixel_loaded ? 'sim' : '<span class="bad">não</span>') + '</td><td>' + meta + '</td></tr>';
+    });
+    $('recent').innerHTML = list.length ? html : '<tr><td class="muted">Nenhum lead no período.</td></tr>';
+  }
+
+  function load() {
+    var key = $('key').value.trim();
+    if (!key) return;
+    try { sessionStorage.setItem('alk_dash_key', key); } catch (e) {}
+    $('status').textContent = 'Carregando…';
+    $('status').className = 'muted';
+    fetch('/api/report?days=' + $('days').value, { headers: { 'X-Dash-Key': key } })
+      .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || r.status); return j; }); })
+      .then(function (d) {
+        renderAB(d); renderHealth(d.health); renderSources(d.sources); renderRecent(d.recent);
+        $('status').textContent = 'Atualizado ' + new Date().toLocaleTimeString('pt-BR') + ' · últimos ' + d.days + ' dias';
+      })
+      .catch(function (e) { $('status').textContent = 'Erro: ' + e.message; $('status').className = 'err'; });
+  }
+  $('load').addEventListener('click', load);
+  $('days').addEventListener('change', load);
+  if ($('key').value) load();
+})();
+</script>
+</body>
+</html>
