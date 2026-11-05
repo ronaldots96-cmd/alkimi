@@ -16,6 +16,7 @@
 export const LANDING_PAGES = {
   '/kids/': 'kids',
   '/women/': 'women',
+  '/black-friday/': 'black-friday',
 };
 
 export const EXPERIMENTS = [

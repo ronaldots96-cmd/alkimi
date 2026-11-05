@@ -1,0 +1,289 @@
+<title>Alkimi Growth Kickoff</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one-column meeting brief, sections in agenda order; scripts set as cue cards; gold only for owner/deadline chips */
+:root{
+  --bg:#f6f5f1; --surface:#ffffff; --fg:#17191d; --muted:#5d6068; --line:#dddad2;
+  --gold:#8f6614; --gold-soft:#f3e6c6; --todo:#a4560f; --todo-soft:#f6e3cf;
+  --display:"Montserrat",system-ui,sans-serif; --body:"Montserrat",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121417; --surface:#1b1e23; --fg:#ecebe6; --muted:#a2a5ad; --line:#2e323a;
+  --gold:#e0b45a; --gold-soft:#3a2f17; --todo:#e5a061; --todo-soft:#3a2816; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121417; --surface:#1b1e23; --fg:#ecebe6; --muted:#a2a5ad; --line:#2e323a;
+  --gold:#e0b45a; --gold-soft:#3a2f17; --todo:#e5a061; --todo-soft:#3a2816; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.6}
+.wrap{max-width:860px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:44px}
+header{display:grid;gap:12px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(28px,5vw,40px);line-height:1.12;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:21px;margin:0;text-wrap:balance}
+h3{font-size:15px;font-weight:700;margin:0}
+p{margin:0;max-width:68ch}
+.lede{color:var(--muted);max-width:70ch}
+section{display:grid;gap:16px}
+.sec-head{display:grid;gap:6px}
+.num{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.06em}
+.agenda{display:grid;gap:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);overflow:hidden}
+.agenda div{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.agenda div:last-child{border-bottom:0}
+.agenda span:first-child{font-family:var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.fact{background:var(--surface);padding:14px;display:grid;gap:2px;min-width:0}
+.fact b{font-family:var(--mono);font-size:22px;font-weight:500}
+.fact span{font-size:12.5px;color:var(--muted)}
+@media (max-width:640px){.facts{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:10px;min-width:0}
+.card .meta{font-size:12.5px;color:var(--muted)}
+.script{border-left:3px solid var(--gold);padding-left:14px;display:grid;gap:8px;font-size:15.5px}
+.script p{max-width:62ch}
+.shot{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.tbd{background:var(--todo-soft);color:var(--todo);padding:0 5px;border-radius:3px;font-weight:600;white-space:nowrap}
+ul,ol{margin:0;padding-left:20px;display:grid;gap:6px;max-width:70ch}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:620px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;white-space:nowrap}
+.flow{display:grid;gap:8px}
+.step{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start}
+.step .d{font-family:var(--mono);font-size:12.5px;color:var(--gold);padding-top:2px}
+.chip{display:inline-block;font-size:11.5px;font-weight:600;padding:1px 8px;border-radius:99px;background:var(--gold-soft);color:var(--gold);white-space:nowrap}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:700px){.two{grid-template-columns:1fr}}
+footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Alkimi Jiu-Jitsu · South Austin · Kickoff · Nicholas, Chloe, Ronaldo</div>
+  <h1>Turning more leads into students, starting this week</h1>
+  <p class="lede">Last month we had 87 leads and 7 of them signed up from ads. The ads bring people in. What's missing is everything between the first message and the trial class: follow-up, real faces, and something to send. This brief covers what we'll build together, what we need from you, and how we'll keep track. It should take about 30 minutes.</p>
+</header>
+
+<section>
+  <div class="sec-head"><span class="num">AGENDA · 30 MIN</span><h2>What we'll cover</h2></div>
+  <div class="agenda">
+    <div><span>0–5</span><span>Where we are: leads, trials, sign-ups, and the leads sitting in the CRM</span></div>
+    <div><span>5–12</span><span>Your 3 short videos: scripts and when to shoot</span></div>
+    <div><span>12–17</span><span>Student testimonials: who to ask and what to ask them</span></div>
+    <div><span>17–25</span><span>Pipeline stages and follow-up messages: what's automated and what stays with you</span></div>
+    <div><span>25–30</span><span>Black Friday offer, weekly check-in, and next steps</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="num">01</span><h2>Where we are</h2></div>
+  <div class="facts">
+    <div class="fact"><b>87</b><span>Leads in October</span></div>
+    <div class="fact"><b>7</b><span>Sign-ups from ads (about 8%)</span></div>
+    <div class="fact"><b>204</b><span>Leads sitting in the CRM: 141 cold + 63 lost</span></div>
+  </div>
+  <p>Our goal is 100 leads a month with 1 in 5 turning into a student. Today it's about 1 in 12. Better ads alone won't close that gap. You need help with follow-up, so you aren't chasing every lead by hand with nothing to send.</p>
+  <p>Kids (6+) and adult Fundamentals trials convert best, at about 65%. That's where we'll put most of the ad budget.</p>
+</section>
+
+<section>
+  <div class="sec-head"><span class="num">02</span><h2>Your 3 short videos</h2>
+  <p class="lede">People book with a person, not with a logo. Each video is 20–30 seconds, shot vertical on the phone or with the camera guy. Talk to the camera like you're talking to one parent or one adult at the front desk. Use the scripts as a guide, not word for word. Your own phrasing is better.</p></div>
+
+  <div class="card">
+    <h3>Video 1 · "Come meet us"</h3>
+    <span class="meta">For: ads to adults and the first follow-up message · Shot: you at the front door, academy sign visible</span>
+    <div class="script">
+      <p>"Hi, I'm Chloe from Alkimi Jiu-Jitsu here in South Austin."</p>
+      <p>"If you've been thinking about trying a martial art, this is your sign. You don't need any experience. Most of our students started exactly where you are."</p>
+      <p>"Book a trial class and I'll be the one welcoming you at the door. See you on the mat."</p>
+    </div>
+    <span class="shot">Shot tips: daylight, phone at eye level, 2–3 takes, first word within the first second</span>
+  </div>
+
+  <div class="card">
+    <h3>Video 2 · "For parents"</h3>
+    <span class="meta">For: ads to parents and the kids follow-up · Shot: on the mat, kids class warming up in the background</span>
+    <div class="script">
+      <p>"Parents, does this sound familiar? Too much screen time, energy through the roof after school, and a hard time listening?"</p>
+      <p>"You're not alone. It's one of the most common things we hear. I'm Chloe from Alkimi Jiu-Jitsu, and that's exactly what our kids classes work on: they burn off energy, learn to focus and follow instructions, and build real confidence. No punches, no kicks."</p>
+      <p>"Bring your child for a trial class. You're welcome to stay and watch the whole thing."</p>
+    </div>
+    <span class="shot">Shot tips: film from the side of the mat. Kids in the background should be blurred or facing away unless parents have signed a consent form.</span>
+  </div>
+
+  <div class="card">
+    <h3>Video 3 · "The November offer"</h3>
+    <span class="meta">For: the top of the Black Friday page and messages to cold leads · Shot: front desk, holding the starter kit</span>
+    <div class="script">
+      <p>"This is the best offer we'll have all year."</p>
+      <p>"Start at Alkimi this November and get <span class="tbd">$30 off every month / the starter kit with your gi</span>."</p>
+      <p>"Or, if the holidays make it crazy to start right now, lock in this price today with a $100 deposit and start in January."</p>
+      <p>"But hurry. This offer is only good through November. Tap the button and grab your spot."</p>
+    </div>
+    <span class="shot">Shot tips: open on the first line with energy, straight to camera. Shoot after Nicholas confirms the start-now option (highlighted).</span>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="num">03</span><h2>Student testimonials</h2>
+  <p class="lede">Short videos of real students and parents explaining why they joined. We have no testimonial videos yet, and these are what convinces people on the fence. Target: 6 videos of 30–45 seconds, 2 per week, all filmed by Nov 25.</p></div>
+  <div class="two">
+    <div class="card">
+      <h3>Who to ask</h3>
+      <ul>
+        <li>2 parents of kids aged 6 and up</li>
+        <li>2 adults in Fundamentals who started from zero</li>
+        <li>1 woman from the women's class</li>
+        <li>1 student who started after 30</li>
+      </ul>
+      <p class="meta">Pick people who are happy and comfortable on camera. Get a signed consent form from every adult, and from a parent for any child on camera.</p>
+    </div>
+    <div class="card">
+      <h3>What to ask (30–45 sec total)</h3>
+      <ol>
+        <li>Why did you (or your kid) start?</li>
+        <li>What's changed since you started?</li>
+        <li>What would you tell someone who's on the fence?</li>
+      </ol>
+      <p class="meta">Film vertical, in a quiet corner, with the mic on. One take per question is fine. We'll edit.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="num">04</span><h2>Pipeline stages: one card, one stage</h2>
+  <p class="lede">You don't need to track numbers. If every lead's card is in the right stage, the reports build themselves and we can see where people drop off. These are the stages you already use in GoHighLevel (pipeline NEW). We only add one stage and change two habits.</p></div>
+  <div class="scroll"><table>
+    <thead><tr><th>Stage in GoHighLevel</th><th>When the card goes here</th><th>What you do</th></tr></thead>
+    <tbody>
+      <tr><td>NEW LEADS</td><td>Form just came in</td><td>First reply within 5 minutes during open hours</td></tr>
+      <tr><td>HOT LEADS</td><td>They replied and you're talking</td><td>Answer and offer two trial times</td></tr>
+      <tr><td>COLD LEADS</td><td>No reply after the follow-up sequence</td><td>Nothing. The win-back messages handle it</td></tr>
+      <tr><td>APPOINTMENT BOOKED</td><td>Trial date and time set</td><td>Reminder the day before</td></tr>
+      <tr><td>NO SHOW</td><td>Missed the trial</td><td>Rebook within 24 hours</td></tr>
+      <tr><td>FOLLOW UP TO CLOSE</td><td>Came to the trial, hasn't signed yet</td><td>Close, or offer the January deposit</td></tr>
+      <tr><td>JANUARY DEPOSIT <span class="chip">new</span></td><td>Paid $100 to lock the November price</td><td>Add the start date</td></tr>
+      <tr><td>REACH OUT LATER</td><td>Asked for more time</td><td>Set the date they gave you</td></tr>
+      <tr><td>SIGNED UP</td><td>Paying member</td><td><b>Mark the card as Won</b> and tag the program (Kids, Toddlers, Women, Fundamentals, Advanced)</td></tr>
+      <tr><td>VISITOR &amp; DROP INS</td><td>Visiting or drop-in</td><td>No change</td></tr>
+      <tr><td>NOT INTERESTED</td><td>Said no</td><td><b>Mark the card as Lost</b> and pick a reason: price, schedule, distance, not interested, no reply, other</td></tr>
+    </tbody>
+  </table></div>
+  <p class="meta">Why the two habits matter: today none of the 29 Signed Up cards are marked Won, and the account has no lost reasons set up, so GoHighLevel can't show conversion rates or why people say no. The 141 cold leads and 63 not-interested cards in the OLD pipeline are the win-back list below.</p>
+</section>
+
+<section>
+  <div class="sec-head"><span class="num">05</span><h2>Follow-up messages: what runs on its own</h2>
+  <p class="lede">Two rules. The automation stops the moment someone replies, so it never interrupts your conversation. And every message is written in native English and reviewed before it goes live.</p></div>
+  <div class="two">
+    <div class="card">
+      <h3>New lead · 14 days</h3>
+      <div class="flow">
+        <div class="step"><span class="d">Day 0</span><span>Welcome + your Video 1 (or Video 2 for parents)</span></div>
+        <div class="step"><span class="d">Day 1</span><span>Photos: the mat, a class, the coaches</span></div>
+        <div class="step"><span class="d">Day 2</span><span>"Your first class" guide: what to bring, how it works, schedule</span></div>
+        <div class="step"><span class="d">Day 4</span><span>A testimonial that matches their program</span></div>
+        <div class="step"><span class="d">Day 7</span><span>November offer</span></div>
+        <div class="step"><span class="d">Day 10, 14</span><span>Last check-ins, then the card moves to COLD LEADS</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Win-back · the 204 cold and lost leads</h3>
+      <div class="flow">
+        <div class="step"><span class="d">Day 0</span><span>"Still thinking about jiu-jitsu?" + Video 1</span></div>
+        <div class="step"><span class="d">Day 2</span><span>November offer + Video 3</span></div>
+        <div class="step"><span class="d">Day 5</span><span>Testimonial</span></div>
+        <div class="step"><span class="d">Day 8</span><span>"Lock in now, start in January"</span></div>
+        <div class="step"><span class="d">Day 11, 14</span><span>Offer deadline reminders</span></div>
+      </div>
+      <p class="meta">Anyone who replies comes straight to you in HOT LEADS. We send this in batches so you're never flooded.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="num">05b</span><h2>How you help the automations work</h2>
+  <p class="lede">We build and run the automations. You know the leads better than anyone, so these are the places where your input makes them sound like Alkimi and convert.</p></div>
+  <div class="two">
+    <div class="card">
+      <h3>Material</h3>
+      <ul>
+        <li>The 5 questions leads ask you most, with your best answers. They become the "first class" guide and the FAQ.</li>
+        <li>The 3 most common reasons people say "not now" (price, schedule, timing…) and what you usually reply. We use your words in the follow-ups.</li>
+        <li>Read every message before it goes live. If it doesn't sound like you, change it. You're the one signing it.</li>
+        <li>Pick 10 photos you'd show a new parent or adult: mat, classes, coaches, kids.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Communication</h3>
+      <ul>
+        <li>Confirm the hours messages can go out and when you can answer replies.</li>
+        <li>When an automated message causes confusion or a complaint, tell us in the group the same day.</li>
+        <li>If a message ever interrupts a conversation you're having, flag it right away. That's the bug we most want to avoid.</li>
+        <li>Send a personal text to the 25 warmest leads (Follow Up To Close, Reach Out Later, No Show) before the automation starts.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Your daily order of priorities</h3>
+    <ol>
+      <li><b>Replies from the automation</b> (HOT LEADS, with a task assigned to you): answer within 1 hour.</li>
+      <li><b>NEW LEADS:</b> first reply within 5 minutes during open hours.</li>
+      <li><b>Today's and tomorrow's trials:</b> confirm, and rebook anyone in NO SHOW within 24 hours.</li>
+      <li><b>FOLLOW UP TO CLOSE:</b> anyone who did a trial and hasn't decided. Offer the January deposit if timing is the issue.</li>
+      <li><b>REACH OUT LATER:</b> only the ones whose date is today.</li>
+    </ol>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>Daily check · 10 minutes</h3>
+      <ul>
+        <li>Every card you touched is in the right stage.</li>
+        <li>New members are marked <b>Won</b>. Anyone who said no is marked <b>Lost</b> with a reason.</li>
+        <li>Nothing is stuck: no trial date in the past still sitting in APPOINTMENT BOOKED.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Weekly check-in · bring 3 things</h3>
+      <ul>
+        <li>Which message got the most replies, and what people said.</li>
+        <li>The top reason people said no this week.</li>
+        <li>One thing that would make your week easier: a material, a message, a change to a step.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="num">06</span><h2>Black Friday offer</h2></div>
+  <p>Same idea as the offer Nicholas already tested with a lead last Friday (they paid the deposit in 2 minutes). Pick one of two:</p>
+  <ul>
+    <li><b>Start now:</b> <span class="tbd">$30 off per month</span> or the <span class="tbd">starter kit (gi + …)</span></li>
+    <li><b>Start in January:</b> lock today's price with a $100 deposit, credited when they start</li>
+  </ul>
+  <p>The offer runs through November 30.</p>
+  <p class="lede">Nicholas will confirm the highlighted terms before the page and the messages go live.</p>
+</section>
+
+<section>
+  <div class="sec-head"><span class="num">07</span><h2>What we need from you</h2></div>
+  <div class="scroll"><table>
+    <thead><tr><th>What</th><th>By</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Top 5 questions + top 3 "not now" reasons, with your answers</td><td><span class="chip">Wed, Nov 4</span></td><td>A voice note or a list in the group is fine</td></tr>
+      <tr><td>Review the win-back messages</td><td><span class="chip">Thu, Nov 5</span></td><td>We send them in the group; edit anything that doesn't sound like you</td></tr>
+      <tr><td>Personal text to the 25 warmest leads</td><td><span class="chip">Thu–Fri, Nov 5–6</span></td><td>Before the first automated batch</td></tr>
+      <tr><td>Videos 1 and 2</td><td><span class="chip">Fri, Nov 6</span></td><td>Send raw takes to the shared Drive folder</td></tr>
+      <tr><td>Video 3</td><td><span class="chip">After offer terms</span></td><td>Needs the confirmed offer</td></tr>
+      <tr><td>2 testimonial names a week</td><td><span class="chip">Mondays, Nov 9 · 16 · 23</span></td><td>Ask and book; we send the questions and consent form, the camera guy films after class</td></tr>
+      <tr><td>Cards in the right stage</td><td><span class="chip">Every day</span></td><td>Including the lost reason</td></tr>
+      <tr><td>Weekly check-in</td><td><span class="chip">20 min, weekly</span></td><td>You + Ronaldo: what's moving, what's stuck, what you need</td></tr>
+    </tbody>
+  </table></div>
+  <p class="lede">From our side: we write and set up the messages, the "first class" guide, the offer page, and the ads. You won't have to build anything in the CRM.</p>
+</section>
+
+<footer>Prepared by Ronaldo for the Nov 3–4 kickoff. Highlighted items are waiting on Nicholas. Everyone works from a shared WhatsApp group and Drive folder.</footer>
+</div>

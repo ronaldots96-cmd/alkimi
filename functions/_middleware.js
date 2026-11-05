@@ -8,7 +8,7 @@ import { parseCookies, getRawParam, subDomainIndex, detectBot } from '../trackin
 import { lpForPath, runningExperiment, pickVariant } from '../tracking/edge/experiments.js';
 
 const SKIP = /^\/(tracker|api\/|dash|scripts\/)/;
-const PRIVATE = /^\/(functions|tracking|automation|variants|\.claude|\.git)(\/|$)|^\/(README\.md|\.gitignore|\.dev\.vars)$/i;
+const PRIVATE = /^\/(functions|tracking|automation|variants|\.claude|\.git)(\/|$)|^\/(README\.md|\.gitignore|\.dev\.vars)$|\.md$/i;
 const COOKIE_MAX_AGE = 34560000; // 400 days
 
 export async function onRequest(context) {

@@ -1,0 +1,140 @@
+[
+  {
+    "id": "women-community-9x16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 852,
+    "props": {
+      "concept": "community",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultProps": {
+      "concept": "community",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultCodec": null,
+    "defaultOutName": null,
+    "defaultVideoImageFormat": null,
+    "defaultPixelFormat": null,
+    "defaultProResProfile": null,
+    "defaultSampleRate": null
+  },
+  {
+    "id": "women-community-4x5",
+    "width": 1080,
+    "height": 1350,
+    "fps": 30,
+    "durationInFrames": 852,
+    "props": {
+      "concept": "community",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultProps": {
+      "concept": "community",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultCodec": null,
+    "defaultOutName": null,
+    "defaultVideoImageFormat": null,
+    "defaultPixelFormat": null,
+    "defaultProResProfile": null,
+    "defaultSampleRate": null
+  },
+  {
+    "id": "women-self-defense-9x16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 912,
+    "props": {
+      "concept": "self-defense",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultProps": {
+      "concept": "self-defense",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultCodec": null,
+    "defaultOutName": null,
+    "defaultVideoImageFormat": null,
+    "defaultPixelFormat": null,
+    "defaultProResProfile": null,
+    "defaultSampleRate": null
+  },
+  {
+    "id": "women-self-defense-4x5",
+    "width": 1080,
+    "height": 1350,
+    "fps": 30,
+    "durationInFrames": 912,
+    "props": {
+      "concept": "self-defense",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultProps": {
+      "concept": "self-defense",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultCodec": null,
+    "defaultOutName": null,
+    "defaultVideoImageFormat": null,
+    "defaultPixelFormat": null,
+    "defaultProResProfile": null,
+    "defaultSampleRate": null
+  },
+  {
+    "id": "women-confidence-9x16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 858,
+    "props": {
+      "concept": "confidence",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultProps": {
+      "concept": "confidence",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultCodec": null,
+    "defaultOutName": null,
+    "defaultVideoImageFormat": null,
+    "defaultPixelFormat": null,
+    "defaultProResProfile": null,
+    "defaultSampleRate": null
+  },
+  {
+    "id": "women-confidence-4x5",
+    "width": 1080,
+    "height": 1350,
+    "fps": 30,
+    "durationInFrames": 858,
+    "props": {
+      "concept": "confidence",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultProps": {
+      "concept": "confidence",
+      "opening": "photo",
+      "debugSafeArea": false
+    },
+    "defaultCodec": null,
+    "defaultOutName": null,
+    "defaultVideoImageFormat": null,
+    "defaultPixelFormat": null,
+    "defaultProResProfile": null,
+    "defaultSampleRate": null
+  }
+]

@@ -1,0 +1,348 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1xdPc97jGTGg5iypZQJfmLfTKu9i6T0OslArZIAFLtw4/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "form leads",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1xdPc97jGTGg5iypZQJfmLfTKu9i6T0OslArZIAFLtw4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $json.body.submitted_at }}",
+            "Parent's Name": "={{ $json.body.name }}",
+            "Child's Name": "={{ $json.body.child_name }}",
+            "Child's Age": "={{ $json.body.child_age }}",
+            "Phone": "={{ $json.body.phone }}",
+            "Email": "={{ $json.body.email }}",
+            "source": "={{ $json.body.utm_source }}",
+            "LP": "={{ $json.body.lp }}",
+            "medium": "={{ $json.body.utm_medium }}",
+            "campaign": "={{ $json.body.utm_campaign }}",
+            "content": "={{ $json.body.utm_content }}",
+            "term": "={{ $json.body.utm_term }}",
+            "gclid": "={{ $json.body.gclid }}",
+            "fbclid": "={{ $json.body.fbclid }}",
+            "Experience": "={{ $json.body.experience }}",
+            "Class": "={{ $json.body.class_fit }}",
+            "Goal": "={{ $json.body.main_goal }}",
+            "Lead source": "={{ $json.body.lead_source || 'landing_page' }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Parent's Name",
+              "displayName": "Parent's Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Child's Name",
+              "displayName": "Child's Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Child's Age",
+              "displayName": "Child's Age",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "LP",
+              "displayName": "LP",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "source",
+              "displayName": "source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "medium",
+              "displayName": "medium",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "campaign",
+              "displayName": "campaign",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "content",
+              "displayName": "content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "term",
+              "displayName": "term",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "gclid",
+              "displayName": "gclid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "fbclid",
+              "displayName": "fbclid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Experience",
+              "displayName": "Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Class",
+              "displayName": "Class",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Goal",
+              "displayName": "Goal",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Lead source",
+              "displayName": "Lead source",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        224,
+        0
+      ],
+      "id": "ce5bc9ef-26c8-4f10-8a12-706f6e8b7d89",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Z9gqMddz0MyhBWgp",
+          "name": "Google Sheets Ronaldo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "alkimi-kids",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -32,
+        -224
+      ],
+      "id": "ea9d443b-90f2-4763-91e4-808aff231fc4",
+      "name": "Webhook Kids",
+      "webhookId": "2024515d-3143-4c48-b3a1-e1ff5cc05894"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "alkimi-women",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -32,
+        0
+      ],
+      "id": "05ee61a5-be10-4a4a-baf7-a2152f7c3193",
+      "name": "Webhook Women",
+      "webhookId": "fd9d2dd8-fadd-4cef-bb42-aeb1f9b0b5e1"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "alkimi-adults",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -32,
+        224
+      ],
+      "id": "3c1f6a52-8f0e-4c5a-9b7e-2a41d6e0a7b1",
+      "name": "Webhook Adults",
+      "webhookId": "8b2e4d71-5c9a-4f3e-a6d8-1e7b9c0f2a64"
+    },
+    {
+      "parameters": {
+        "sendTo": "nicholasmeregali@gmail.com",
+        "subject": "={{ 'New ' + ($json.LP === 'kids' ? 'Kids' : $json.LP === 'adults' ? 'Adults' : 'Women') + ' lead · ' + String($json[\"Parent's Name\"] || '').trim() + ' · Alkimi' }}",
+        "message": "=<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta name=\"color-scheme\" content=\"light\">\n<title>New lead</title>\n</head>\n<body style=\"margin:0;padding:0;background:#E7E7E7;\">\n<div style=\"display:none;max-height:0;overflow:hidden;opacity:0;color:#E7E7E7;\">{{ $json[\"Parent's Name\"] }} just requested a trial class on the {{ ($json.LP === 'kids' ? 'Kids' : $json.LP === 'adults' ? 'Adults' : 'Women') }} page. Call {{ $json.Phone }}.</div>\n<table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#E7E7E7;\">\n<tr><td align=\"center\" style=\"padding:24px 12px;\">\n<table role=\"presentation\" width=\"600\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width:100%;max-width:600px;background:#FFFFFF;\">\n\n  <!-- Header -->\n  <tr><td style=\"background:#0D0F12;padding:26px 32px;\">\n    <table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr>\n      <td><img src=\"https://gym.alkimijiujitsu.com/assets/email/alkimi-logo-ice.png\" width=\"150\" height=\"20\" alt=\"ALKIMI\" style=\"display:block;border:0;width:150px;height:auto;color:#F8FAFF;font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:20px;letter-spacing:4px;\"></td>\n      <td align=\"right\" style=\"font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#D9BC7A;\">New lead</td>\n    </tr></table>\n  </td></tr>\n  <tr><td style=\"height:3px;line-height:3px;font-size:0;background:#D9BC7A;\">&nbsp;</td></tr>\n\n  <!-- Who -->\n  <tr><td style=\"padding:32px 32px 8px;\">\n    <span style=\"display:inline-block;padding:4px 10px;background:{{ ($json.LP === 'kids' ? '#1C332C' : $json.LP === 'adults' ? '#0D0F12' : '#5E3A44') }};color:#F8FAFF;font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;\">{{ ($json.LP === 'kids' ? 'Kids' : $json.LP === 'adults' ? 'Adults' : 'Women') }}{{ $json['Lead source'] === 'meta_form' ? ' · Meta form' : ' landing page' }}</span>\n    <h1 style=\"margin:16px 0 6px;font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:28px;line-height:1.15;font-weight:300;color:#0D0F12;\">{{ String($json[\"Parent's Name\"] || '').trim().split(' ')[0] }} wants a <strong style=\"font-weight:600;\">trial class</strong></h1>\n    <p style=\"margin:0;font-family:'Helvetica Neue', Arial, sans-serif;font-size:14px;color:#3B4148;\">Received {{ DateTime.fromISO($json.Date).setZone('America/Chicago').toFormat(\"ccc, LLL d 'at' h:mm a\") }} (Austin time)</p>\n  </td></tr>\n\n  <!-- Actions -->\n  <tr><td style=\"padding:20px 32px 8px;\">\n    <table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr>\n      <td style=\"padding:0 8px 8px 0;\"><a href=\"tel:{{ String($json.Phone || '').replace(/[^\\d+]/g, '') }}\" style=\"display:inline-block;padding:13px 22px;font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:14px;font-weight:600;text-decoration:none;background:#D9BC7A;color:#0D0F12;\">Call {{ $json.Phone }}</a></td>\n      <td style=\"padding:0 8px 8px 0;\"><a href=\"sms:{{ String($json.Phone || '').replace(/[^\\d+]/g, '') }}\" style=\"display:inline-block;padding:13px 22px;font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:14px;font-weight:600;text-decoration:none;background:#F8FAFF;color:#0D0F12;border:1px solid #E7E7E7;\">Text</a></td>\n      <td style=\"padding:0 8px 8px 0;\"><a href=\"mailto:{{ $json.Email }}\" style=\"display:inline-block;padding:13px 22px;font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:14px;font-weight:600;text-decoration:none;background:#F8FAFF;color:#0D0F12;border:1px solid #E7E7E7;\">Email</a></td>\n    </tr></table>\n  </td></tr>\n\n  <!-- Contact -->\n  <tr><td style=\"padding:16px 32px 8px;\">\n    <p style=\"margin:0 0 4px;font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#795D31;\">Contact</p>\n    <table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n      <tr><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;\">{{ $json.LP === 'kids' ? 'Parent' : 'Name' }}</td><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;\">{{ $json[\"Parent's Name\"] }}</td></tr>\n      <tr><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;\">Phone</td><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;\"><a href=\"tel:{{ String($json.Phone || '').replace(/[^\\d+]/g, '') }}\" style=\"color:#0D0F12;text-decoration:none;\">{{ $json.Phone }}</a></td></tr>\n      <tr><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;\">Email</td><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;\"><a href=\"mailto:{{ $json.Email }}\" style=\"color:#0D0F12;text-decoration:none;\">{{ $json.Email }}</a></td></tr>\n      {{ (() => { const r = (k, v) => '<tr><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:Helvetica, Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;\">' + k + '</td><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:Helvetica, Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;\">' + (v || '–') + '</td></tr>'; return $json.LP === 'kids' ? r(\"Child's name\", $json[\"Child's Name\"]) + r(\"Child's age\", $json[\"Child's Age\"]) : r('Experience', $json.Experience) + ($json.LP === 'adults' ? r('Class', $json.Class) + r('Goal', $json.Goal) : ''); })() }}\n    </table>\n  </td></tr>\n\n  <!-- Source -->\n  <tr><td style=\"padding:16px 32px 28px;\">\n    <table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"background:#F8FAFF;\">\n      <tr><td style=\"padding:18px 20px 6px;font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#795D31;\">Where they came from</td></tr>\n      <tr><td style=\"padding:0 20px 14px;\">\n        <table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">\n          <tr><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;\">Source / medium</td><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;\">{{ $json.source || '(direct)' }} / {{ $json.medium || '–' }}</td></tr>\n          <tr><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;\">Campaign</td><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;\">{{ $json.campaign || '–' }}</td></tr>\n          <tr><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;\">Ad</td><td style=\"padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;\">{{ $json.content || '–' }}</td></tr>\n          <tr><td style=\"padding:12px 0;font-family:'Helvetica Neue', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;\">Click</td><td style=\"padding:12px 0;font-family:'Helvetica Neue', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;\">{{ $json.fbclid ? 'Meta ad (fbclid)' : ($json.gclid ? 'Google ad (gclid)' : 'No ad click id') }}</td></tr>\n        </table>\n      </td></tr>\n    </table>\n  </td></tr>\n\n  <!-- Footer -->\n  <tr><td style=\"background:#0D0F12;padding:20px 32px;font-family:'Helvetica Neue', Arial, sans-serif;font-size:12px;line-height:1.6;color:#AEB4BC;\">\n    Leads called back quickly book more trial classes. This lead is also saved in the\n    <a href=\"https://docs.google.com/spreadsheets/d/1xdPc97jGTGg5iypZQJfmLfTKu9i6T0OslArZIAFLtw4/edit#gid=0\" style=\"color:#D9BC7A;text-decoration:underline;\">leads sheet</a>.<br>\n    Alkimi Jiu-Jitsu South Austin · automatic alert from the landing pages and Meta lead forms\n  </td></tr>\n\n</table>\n</td></tr>\n</table>\n</body>\n</html>\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        432,
+        0
+      ],
+      "id": "76724fa7-8931-49b9-9625-b2615b675326",
+      "name": "Send a message",
+      "webhookId": "76935c2b-6f89-44a9-8448-696580dac5bf",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "6sPCg8Y6tkAtqRPS",
+          "name": "Gmail API - Ronald"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Kids": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Women": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook Adults": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2d946570092a86d9c7ad06bd1a4d02c366559a0792b5dca95ecb6b7fe9120c6c"
+  }
+}

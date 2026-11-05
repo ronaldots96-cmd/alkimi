@@ -1,0 +1,26 @@
+[
+  {
+    "concept": "community",
+    "beforeLUFS": -19.329537255104068,
+    "afterLUFS": -16.003444418180056,
+    "truePeak4x_dBTP": -1.0002278258748583,
+    "maxPeakReductionDB": 4.210316522969118,
+    "method": "pyloudnorm BS.1770; 10 ms look-ahead peak envelope, 80 ms release; scipy 4x true-peak estimate; no speed or pitch change"
+  },
+  {
+    "concept": "self-defense",
+    "beforeLUFS": -20.36001487835056,
+    "afterLUFS": -15.99860170221856,
+    "truePeak4x_dBTP": -1.0001918548780164,
+    "maxPeakReductionDB": 5.164561694579777,
+    "method": "pyloudnorm BS.1770; 10 ms look-ahead peak envelope, 80 ms release; scipy 4x true-peak estimate; no speed or pitch change"
+  },
+  {
+    "concept": "confidence",
+    "beforeLUFS": -19.344428612725174,
+    "afterLUFS": -16.003412468915784,
+    "truePeak4x_dBTP": -1.0002527516464557,
+    "maxPeakReductionDB": 4.547473505590224,
+    "method": "pyloudnorm BS.1770; 10 ms look-ahead peak envelope, 80 ms release; scipy 4x true-peak estimate; no speed or pitch change"
+  }
+]

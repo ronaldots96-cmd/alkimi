@@ -1,0 +1,1307 @@
+{
+  "version": 2,
+  "guideOnly": true,
+  "model": "onnx-community/Kokoro-82M-v1.0-ONNX",
+  "voice": "af_bella",
+  "sampleRate": 24000,
+  "speed": 1,
+  "generationCredits": 0,
+  "source": "https://github.com/hexgrad/kokoro/tree/main/kokoro.js",
+  "concepts": [
+    {
+      "id": "community",
+      "audioFile": "vo/guide-v2/community-guide.wav",
+      "durationFrames": 704,
+      "duration": 23.466666666666665,
+      "voiceEnd": 20.9415,
+      "hold": 2.5251666666666637,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "Find women who have your back.",
+          "kind": "hero",
+          "photo": "D051",
+          "minSeconds": 3.1,
+          "start": 0,
+          "end": 2.3,
+          "startFrame": 0,
+          "endFrame": 69,
+          "voiceEnd": 1.496625,
+          "voiceEndFrame": 45,
+          "words": [
+            {
+              "word": "Find",
+              "start": 0.0,
+              "end": 0.34,
+              "probability": 0.849
+            },
+            {
+              "word": "women",
+              "start": 0.34,
+              "end": 0.58,
+              "probability": 0.982
+            },
+            {
+              "word": "who",
+              "start": 0.58,
+              "end": 0.8,
+              "probability": 0.996
+            },
+            {
+              "word": "have",
+              "start": 0.8,
+              "end": 0.98,
+              "probability": 0.999
+            },
+            {
+              "word": "your",
+              "start": 0.98,
+              "end": 1.12,
+              "probability": 0.995
+            },
+            {
+              "word": "back.",
+              "start": 1.12,
+              "end": 1.5,
+              "probability": 0.999
+            }
+          ]
+        },
+        {
+          "id": "women",
+          "text": "Women's jiu-jitsu at Alkimi, South Austin.",
+          "kind": "women",
+          "photo": "D016",
+          "minSeconds": 3.3,
+          "start": 2.3,
+          "end": 5.4,
+          "startFrame": 69,
+          "endFrame": 162,
+          "voiceEnd": 5.019,
+          "voiceEndFrame": 151,
+          "words": [
+            {
+              "word": "Women's",
+              "start": 2.46,
+              "end": 2.88,
+              "probability": 0.964
+            },
+            {
+              "word": "jiu",
+              "start": 2.88,
+              "end": 3.04,
+              "probability": 0.555
+            },
+            {
+              "word": "-jitsu",
+              "start": 3.04,
+              "end": 3.32,
+              "probability": 0.759
+            },
+            {
+              "word": "at",
+              "start": 3.32,
+              "end": 3.48,
+              "probability": 0.995
+            },
+            {
+              "word": "Alkimi,",
+              "start": 3.48,
+              "end": 3.9,
+              "probability": 0.1
+            },
+            {
+              "word": "South",
+              "start": 4.24,
+              "end": 4.42,
+              "probability": 0.972
+            },
+            {
+              "word": "Austin.",
+              "start": 4.42,
+              "end": 4.9,
+              "probability": 0.995
+            }
+          ]
+        },
+        {
+          "id": "coach",
+          "text": "A women-only class. Led by a female coach.",
+          "kind": "coach",
+          "photo": "D002",
+          "minSeconds": 3.6,
+          "start": 5.4,
+          "end": 8.600000000000001,
+          "startFrame": 162,
+          "endFrame": 258,
+          "voiceEnd": 8.219416666666667,
+          "voiceEndFrame": 247,
+          "words": [
+            {
+              "word": "A",
+              "start": 5.44,
+              "end": 5.56,
+              "probability": 0.99
+            },
+            {
+              "word": "women",
+              "start": 5.56,
+              "end": 5.76,
+              "probability": 0.968
+            },
+            {
+              "word": "-only",
+              "start": 5.76,
+              "end": 5.98,
+              "probability": 0.856
+            },
+            {
+              "word": "class.",
+              "start": 5.98,
+              "end": 6.5,
+              "probability": 0.998
+            },
+            {
+              "word": "Led",
+              "start": 6.9,
+              "end": 7.04,
+              "probability": 0.96
+            },
+            {
+              "word": "by",
+              "start": 7.04,
+              "end": 7.22,
+              "probability": 0.999
+            },
+            {
+              "word": "a",
+              "start": 7.22,
+              "end": 7.36,
+              "probability": 0.998
+            },
+            {
+              "word": "female",
+              "start": 7.36,
+              "end": 7.62,
+              "probability": 0.998
+            },
+            {
+              "word": "coach.",
+              "start": 7.62,
+              "end": 8.06,
+              "probability": 0.999
+            }
+          ]
+        },
+        {
+          "id": "together",
+          "text": "Train together. Cheer each other on.",
+          "kind": "carousel",
+          "photos": [
+            "D011",
+            "D005",
+            "D055"
+          ],
+          "minSeconds": 3.6,
+          "start": 8.6,
+          "end": 12.2,
+          "startFrame": 258,
+          "endFrame": 366,
+          "voiceEnd": 10.692124999999999,
+          "voiceEndFrame": 321,
+          "words": [
+            {
+              "word": "Train",
+              "start": 8.86,
+              "end": 8.88,
+              "probability": 0.318
+            },
+            {
+              "word": "together.",
+              "start": 8.88,
+              "end": 9.3,
+              "probability": 0.998
+            },
+            {
+              "word": "Cheer",
+              "start": 9.8,
+              "end": 9.96,
+              "probability": 0.972
+            },
+            {
+              "word": "each",
+              "start": 9.96,
+              "end": 10.16,
+              "probability": 0.999
+            },
+            {
+              "word": "other",
+              "start": 10.16,
+              "end": 10.3,
+              "probability": 0.996
+            },
+            {
+              "word": "on.",
+              "start": 10.3,
+              "end": 10.64,
+              "probability": 0.997
+            }
+          ]
+        },
+        {
+          "id": "confidence",
+          "text": "Build confidence, one class at a time.",
+          "kind": "confidence",
+          "photo": "D049",
+          "minSeconds": 3.2,
+          "start": 12.2,
+          "end": 14.933333333333334,
+          "startFrame": 366,
+          "endFrame": 448,
+          "voiceEnd": 14.551625,
+          "voiceEndFrame": 437,
+          "words": [
+            {
+              "word": "Build",
+              "start": 12.18,
+              "end": 12.46,
+              "probability": 0.997
+            },
+            {
+              "word": "confidence,",
+              "start": 12.46,
+              "end": 13.0,
+              "probability": 0.99
+            },
+            {
+              "word": "one",
+              "start": 13.32,
+              "end": 13.6,
+              "probability": 0.988
+            },
+            {
+              "word": "class",
+              "start": 13.6,
+              "end": 13.86,
+              "probability": 0.997
+            },
+            {
+              "word": "at",
+              "start": 13.86,
+              "end": 14.02,
+              "probability": 0.997
+            },
+            {
+              "word": "a",
+              "start": 14.02,
+              "end": 14.14,
+              "probability": 0.996
+            },
+            {
+              "word": "time.",
+              "start": 14.14,
+              "end": 14.44,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "id": "begin",
+          "text": "No experience needed. Start at your own pace.",
+          "kind": "begin",
+          "minSeconds": 3.8,
+          "start": 14.933333333333334,
+          "end": 18.1,
+          "startFrame": 448,
+          "endFrame": 543,
+          "voiceEnd": 17.70841666666667,
+          "voiceEndFrame": 532,
+          "words": [
+            {
+              "word": "No",
+              "start": 14.98,
+              "end": 15.2,
+              "probability": 0.929
+            },
+            {
+              "word": "experience",
+              "start": 15.2,
+              "end": 15.78,
+              "probability": 0.999
+            },
+            {
+              "word": "needed.",
+              "start": 15.78,
+              "end": 16.18,
+              "probability": 0.999
+            },
+            {
+              "word": "Start",
+              "start": 16.64,
+              "end": 16.86,
+              "probability": 0.999
+            },
+            {
+              "word": "at",
+              "start": 16.86,
+              "end": 16.98,
+              "probability": 0.998
+            },
+            {
+              "word": "your",
+              "start": 16.98,
+              "end": 17.08,
+              "probability": 0.997
+            },
+            {
+              "word": "own",
+              "start": 17.08,
+              "end": 17.22,
+              "probability": 0.999
+            },
+            {
+              "word": "pace.",
+              "start": 17.22,
+              "end": 17.54,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "text": "Book your trial class at Alkimi, South Austin.",
+          "kind": "cta",
+          "minSeconds": 3.5,
+          "start": 18.1,
+          "end": 23.466666666666665,
+          "startFrame": 543,
+          "endFrame": 704,
+          "voiceEnd": 20.9415,
+          "voiceEndFrame": 629,
+          "words": [
+            {
+              "word": "Book",
+              "start": 18.18,
+              "end": 18.28,
+              "probability": 0.997
+            },
+            {
+              "word": "your",
+              "start": 18.28,
+              "end": 18.46,
+              "probability": 0.995
+            },
+            {
+              "word": "trial",
+              "start": 18.46,
+              "end": 18.72,
+              "probability": 0.956
+            },
+            {
+              "word": "class",
+              "start": 18.72,
+              "end": 19.06,
+              "probability": 0.997
+            },
+            {
+              "word": "at",
+              "start": 19.06,
+              "end": 19.28,
+              "probability": 0.998
+            },
+            {
+              "word": "Alkimi,",
+              "start": 19.28,
+              "end": 19.66,
+              "probability": 0.976
+            },
+            {
+              "word": "South",
+              "start": 20.04,
+              "end": 20.3,
+              "probability": 0.996
+            },
+            {
+              "word": "Austin.",
+              "start": 20.3,
+              "end": 20.82,
+              "probability": 1.0
+            }
+          ]
+        }
+      ],
+      "alignmentText": "Find women who have your back. Women's jiu -jitsu at Alkimi, South Austin. A women -only class. Led by a female coach. Train together. Cheer each other on. Build confidence, one class at a time. No experience needed. Start at your own pace. Book your trial class at Alkimi, South Austin."
+    },
+    {
+      "id": "self-defense",
+      "audioFile": "vo/guide-v2/self-defense-guide.wav",
+      "durationFrames": 729,
+      "duration": 24.3,
+      "voiceEnd": 21.774833333333333,
+      "hold": 2.5251666666666672,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "You don't need to be stronger. Learn what to do.",
+          "kind": "defenseHook",
+          "photo": "D049",
+          "minSeconds": 3.8,
+          "start": 0,
+          "end": 2.8333333333333335,
+          "startFrame": 0,
+          "endFrame": 85,
+          "voiceEnd": 2.4604583333333334,
+          "voiceEndFrame": 74,
+          "words": [
+            {
+              "word": "You",
+              "start": 0.0,
+              "end": 0.16,
+              "probability": 0.768
+            },
+            {
+              "word": "don't",
+              "start": 0.16,
+              "end": 0.3,
+              "probability": 0.994
+            },
+            {
+              "word": "need",
+              "start": 0.3,
+              "end": 0.46,
+              "probability": 0.999
+            },
+            {
+              "word": "to",
+              "start": 0.46,
+              "end": 0.56,
+              "probability": 0.999
+            },
+            {
+              "word": "be",
+              "start": 0.56,
+              "end": 0.68,
+              "probability": 0.999
+            },
+            {
+              "word": "stronger.",
+              "start": 0.68,
+              "end": 1.06,
+              "probability": 0.99
+            },
+            {
+              "word": "Learn",
+              "start": 1.62,
+              "end": 1.74,
+              "probability": 0.998
+            },
+            {
+              "word": "what",
+              "start": 1.74,
+              "end": 1.96,
+              "probability": 0.998
+            },
+            {
+              "word": "to",
+              "start": 1.96,
+              "end": 2.1,
+              "probability": 0.999
+            },
+            {
+              "word": "do.",
+              "start": 2.1,
+              "end": 2.48,
+              "probability": 0.999
+            }
+          ]
+        },
+        {
+          "id": "skills",
+          "text": "Break a grip. Get back up. Get away.",
+          "kind": "skills",
+          "minSeconds": 3.8,
+          "start": 2.8333333333333335,
+          "end": 5.466666666666667,
+          "startFrame": 85,
+          "endFrame": 164,
+          "voiceEnd": 5.095375000000001,
+          "voiceEndFrame": 153,
+          "words": [
+            {
+              "word": "Break",
+              "start": 2.94,
+              "end": 3.04,
+              "probability": 0.987
+            },
+            {
+              "word": "a",
+              "start": 3.04,
+              "end": 3.18,
+              "probability": 0.997
+            },
+            {
+              "word": "grip.",
+              "start": 3.18,
+              "end": 3.4,
+              "probability": 0.998
+            },
+            {
+              "word": "Get",
+              "start": 3.7,
+              "end": 3.82,
+              "probability": 0.998
+            },
+            {
+              "word": "back",
+              "start": 3.82,
+              "end": 4.04,
+              "probability": 0.995
+            },
+            {
+              "word": "up.",
+              "start": 4.04,
+              "end": 4.32,
+              "probability": 0.998
+            },
+            {
+              "word": "Get",
+              "start": 4.58,
+              "end": 4.64,
+              "probability": 0.998
+            },
+            {
+              "word": "away.",
+              "start": 4.64,
+              "end": 4.92,
+              "probability": 0.997
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "text": "Practice real self-defense, with technique and guidance.",
+          "kind": "defensePractice",
+          "photo": "D011",
+          "minSeconds": 3.4,
+          "start": 5.466666666666667,
+          "end": 9.166666666666668,
+          "startFrame": 164,
+          "endFrame": 275,
+          "voiceEnd": 8.792583333333333,
+          "voiceEndFrame": 264,
+          "words": [
+            {
+              "word": "Practice",
+              "start": 5.86,
+              "end": 5.88,
+              "probability": 0.978
+            },
+            {
+              "word": "real",
+              "start": 5.88,
+              "end": 6.28,
+              "probability": 0.975
+            },
+            {
+              "word": "self",
+              "start": 6.28,
+              "end": 6.54,
+              "probability": 0.993
+            },
+            {
+              "word": "-defense",
+              "start": 6.54,
+              "end": 6.92,
+              "probability": 0.867
+            },
+            {
+              "word": "with",
+              "start": 6.92,
+              "end": 7.54,
+              "probability": 0.758
+            },
+            {
+              "word": "technique",
+              "start": 7.54,
+              "end": 7.96,
+              "probability": 0.993
+            },
+            {
+              "word": "and",
+              "start": 7.96,
+              "end": 8.22,
+              "probability": 0.997
+            },
+            {
+              "word": "guidance.",
+              "start": 8.22,
+              "end": 8.64,
+              "probability": 0.999
+            },
+            {
+              "word": "A",
+              "start": 9.14,
+              "end": 9.32,
+              "probability": 0.991
+            }
+          ]
+        },
+        {
+          "id": "coach",
+          "text": "A women-only class. Led by a female coach.",
+          "kind": "coach",
+          "photo": "D002",
+          "minSeconds": 3.6,
+          "start": 9.166666666666666,
+          "end": 12.366666666666667,
+          "startFrame": 275,
+          "endFrame": 371,
+          "voiceEnd": 11.986083333333333,
+          "voiceEndFrame": 360,
+          "words": [
+            {
+              "word": "A",
+              "start": 9.14,
+              "end": 9.32,
+              "probability": 0.991
+            },
+            {
+              "word": "women",
+              "start": 9.32,
+              "end": 9.52,
+              "probability": 0.931
+            },
+            {
+              "word": "-only",
+              "start": 9.52,
+              "end": 9.76,
+              "probability": 0.878
+            },
+            {
+              "word": "class.",
+              "start": 9.76,
+              "end": 10.28,
+              "probability": 0.997
+            },
+            {
+              "word": "Led",
+              "start": 10.68,
+              "end": 10.82,
+              "probability": 0.963
+            },
+            {
+              "word": "by",
+              "start": 10.82,
+              "end": 11.0,
+              "probability": 0.998
+            },
+            {
+              "word": "a",
+              "start": 11.0,
+              "end": 11.14,
+              "probability": 0.999
+            },
+            {
+              "word": "female",
+              "start": 11.14,
+              "end": 11.4,
+              "probability": 0.997
+            },
+            {
+              "word": "coach.",
+              "start": 11.4,
+              "end": 11.82,
+              "probability": 0.998
+            }
+          ]
+        },
+        {
+          "id": "together",
+          "text": "Learn together. Support each other.",
+          "kind": "carousel",
+          "photos": [
+            "D016",
+            "D054",
+            "D055"
+          ],
+          "minSeconds": 3.4,
+          "start": 12.366666666666667,
+          "end": 15.766666666666667,
+          "startFrame": 371,
+          "endFrame": 473,
+          "voiceEnd": 14.245791666666667,
+          "voiceEndFrame": 428,
+          "words": [
+            {
+              "word": "Learn",
+              "start": 12.44,
+              "end": 12.66,
+              "probability": 0.998
+            },
+            {
+              "word": "together.",
+              "start": 12.66,
+              "end": 13.02,
+              "probability": 0.986
+            },
+            {
+              "word": "Support",
+              "start": 13.44,
+              "end": 13.68,
+              "probability": 0.997
+            },
+            {
+              "word": "each",
+              "start": 13.68,
+              "end": 13.9,
+              "probability": 0.999
+            },
+            {
+              "word": "other.",
+              "start": 13.9,
+              "end": 14.18,
+              "probability": 0.994
+            },
+            {
+              "word": "No",
+              "start": 15.7,
+              "end": 16.04,
+              "probability": 0.827
+            }
+          ]
+        },
+        {
+          "id": "begin",
+          "text": "No experience needed. Start at your own pace.",
+          "kind": "begin",
+          "minSeconds": 3.8,
+          "start": 15.766666666666667,
+          "end": 18.933333333333334,
+          "startFrame": 473,
+          "endFrame": 568,
+          "voiceEnd": 18.54175,
+          "voiceEndFrame": 557,
+          "words": [
+            {
+              "word": "experience",
+              "start": 16.04,
+              "end": 16.5,
+              "probability": 0.997
+            },
+            {
+              "word": "needed.",
+              "start": 16.5,
+              "end": 17.04,
+              "probability": 0.999
+            },
+            {
+              "word": "Start",
+              "start": 17.46,
+              "end": 17.68,
+              "probability": 0.998
+            },
+            {
+              "word": "at",
+              "start": 17.68,
+              "end": 17.8,
+              "probability": 0.998
+            },
+            {
+              "word": "your",
+              "start": 17.8,
+              "end": 17.9,
+              "probability": 0.997
+            },
+            {
+              "word": "own",
+              "start": 17.9,
+              "end": 18.06,
+              "probability": 0.999
+            },
+            {
+              "word": "pace.",
+              "start": 18.06,
+              "end": 18.38,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "text": "Book your trial class at Alkimi, South Austin.",
+          "kind": "cta",
+          "minSeconds": 3.5,
+          "start": 18.933333333333334,
+          "end": 24.3,
+          "startFrame": 568,
+          "endFrame": 729,
+          "voiceEnd": 21.774833333333333,
+          "voiceEndFrame": 654,
+          "words": [
+            {
+              "word": "Book",
+              "start": 19.04,
+              "end": 19.1,
+              "probability": 0.997
+            },
+            {
+              "word": "your",
+              "start": 19.1,
+              "end": 19.28,
+              "probability": 0.994
+            },
+            {
+              "word": "trial",
+              "start": 19.28,
+              "end": 19.54,
+              "probability": 0.933
+            },
+            {
+              "word": "class",
+              "start": 19.54,
+              "end": 19.92,
+              "probability": 0.995
+            },
+            {
+              "word": "at",
+              "start": 19.92,
+              "end": 20.12,
+              "probability": 0.995
+            },
+            {
+              "word": "Alkimi,",
+              "start": 20.12,
+              "end": 20.54,
+              "probability": 0.076
+            },
+            {
+              "word": "South",
+              "start": 20.9,
+              "end": 21.14,
+              "probability": 0.955
+            },
+            {
+              "word": "Austin.",
+              "start": 21.14,
+              "end": 21.62,
+              "probability": 0.997
+            }
+          ]
+        }
+      ],
+      "alignmentText": "You don't need to be stronger. Learn what to do. Break a grip. Get back up. Get away. Practice real self -defense with technique and guidance. A women -only class. Led by a female coach. Learn together. Support each other. No experience needed. Start at your own pace. Book your trial class at Alkimi, South Austin."
+    },
+    {
+      "id": "confidence",
+      "audioFile": "vo/guide-v2/confidence-guide.wav",
+      "durationFrames": 715,
+      "duration": 23.833333333333332,
+      "voiceEnd": 21.308166666666665,
+      "hold": 2.5251666666666672,
+      "segments": [
+        {
+          "id": "hook",
+          "text": "Build confidence. One class at a time.",
+          "kind": "confidenceHook",
+          "minSeconds": 3.3,
+          "start": 0,
+          "end": 2.8,
+          "startFrame": 0,
+          "endFrame": 84,
+          "voiceEnd": 2.4274583333333335,
+          "voiceEndFrame": 73,
+          "words": [
+            {
+              "word": "Build",
+              "start": 0.0,
+              "end": 0.26,
+              "probability": 0.874
+            },
+            {
+              "word": "confidence.",
+              "start": 0.26,
+              "end": 0.84,
+              "probability": 0.917
+            },
+            {
+              "word": "One",
+              "start": 1.2,
+              "end": 1.48,
+              "probability": 0.965
+            },
+            {
+              "word": "class",
+              "start": 1.48,
+              "end": 1.74,
+              "probability": 0.987
+            },
+            {
+              "word": "at",
+              "start": 1.74,
+              "end": 1.9,
+              "probability": 0.995
+            },
+            {
+              "word": "a",
+              "start": 1.9,
+              "end": 2.06,
+              "probability": 0.995
+            },
+            {
+              "word": "time.",
+              "start": 2.06,
+              "end": 2.36,
+              "probability": 0.999
+            }
+          ]
+        },
+        {
+          "id": "women",
+          "text": "Women's jiu-jitsu at Alkimi, South Austin.",
+          "kind": "women",
+          "photo": "D016",
+          "minSeconds": 3.3,
+          "start": 2.8,
+          "end": 5.9,
+          "startFrame": 84,
+          "endFrame": 177,
+          "voiceEnd": 5.519,
+          "voiceEndFrame": 166,
+          "words": [
+            {
+              "word": "Women's",
+              "start": 2.96,
+              "end": 3.36,
+              "probability": 0.979
+            },
+            {
+              "word": "jiu",
+              "start": 3.36,
+              "end": 3.54,
+              "probability": 0.543
+            },
+            {
+              "word": "-jitsu",
+              "start": 3.54,
+              "end": 3.82,
+              "probability": 0.791
+            },
+            {
+              "word": "at",
+              "start": 3.82,
+              "end": 3.98,
+              "probability": 0.995
+            },
+            {
+              "word": "Alkimi,",
+              "start": 3.98,
+              "end": 4.38,
+              "probability": 0.113
+            },
+            {
+              "word": "South",
+              "start": 4.78,
+              "end": 4.9,
+              "probability": 0.963
+            },
+            {
+              "word": "Austin.",
+              "start": 4.9,
+              "end": 5.4,
+              "probability": 0.992
+            }
+          ]
+        },
+        {
+          "id": "coach",
+          "text": "A women-only class. Led by a female coach.",
+          "kind": "coach",
+          "photo": "D002",
+          "minSeconds": 3.6,
+          "start": 5.9,
+          "end": 9.100000000000001,
+          "startFrame": 177,
+          "endFrame": 273,
+          "voiceEnd": 8.719416666666667,
+          "voiceEndFrame": 262,
+          "words": [
+            {
+              "word": "A",
+              "start": 5.94,
+              "end": 6.06,
+              "probability": 0.991
+            },
+            {
+              "word": "women",
+              "start": 6.06,
+              "end": 6.24,
+              "probability": 0.955
+            },
+            {
+              "word": "-only",
+              "start": 6.24,
+              "end": 6.48,
+              "probability": 0.86
+            },
+            {
+              "word": "class.",
+              "start": 6.48,
+              "end": 6.98,
+              "probability": 0.997
+            },
+            {
+              "word": "Led",
+              "start": 7.42,
+              "end": 7.54,
+              "probability": 0.958
+            },
+            {
+              "word": "by",
+              "start": 7.54,
+              "end": 7.72,
+              "probability": 0.999
+            },
+            {
+              "word": "a",
+              "start": 7.72,
+              "end": 7.86,
+              "probability": 0.998
+            },
+            {
+              "word": "female",
+              "start": 7.86,
+              "end": 8.14,
+              "probability": 0.995
+            },
+            {
+              "word": "coach.",
+              "start": 8.14,
+              "end": 8.54,
+              "probability": 0.998
+            }
+          ]
+        },
+        {
+          "id": "practice",
+          "text": "Practical skills. Real support.",
+          "kind": "defensePractice",
+          "photo": "D011",
+          "minSeconds": 2.6,
+          "start": 9.1,
+          "end": 11.7,
+          "startFrame": 273,
+          "endFrame": 351,
+          "voiceEnd": 11.308458333333332,
+          "voiceEndFrame": 340,
+          "words": [
+            {
+              "word": "Practical",
+              "start": 9.24,
+              "end": 9.6,
+              "probability": 0.996
+            },
+            {
+              "word": "skills.",
+              "start": 9.6,
+              "end": 9.96,
+              "probability": 0.997
+            },
+            {
+              "word": "Real",
+              "start": 10.5,
+              "end": 10.66,
+              "probability": 0.992
+            },
+            {
+              "word": "support.",
+              "start": 10.66,
+              "end": 11.16,
+              "probability": 0.995
+            }
+          ]
+        },
+        {
+          "id": "together",
+          "text": "Train together. Cheer each other on.",
+          "kind": "carousel",
+          "photos": [
+            "D005",
+            "D054",
+            "D055"
+          ],
+          "minSeconds": 3.6,
+          "start": 11.7,
+          "end": 15.299999999999999,
+          "startFrame": 351,
+          "endFrame": 459,
+          "voiceEnd": 13.792124999999999,
+          "voiceEndFrame": 414,
+          "words": [
+            {
+              "word": "Train",
+              "start": 11.8,
+              "end": 11.98,
+              "probability": 0.56
+            },
+            {
+              "word": "together.",
+              "start": 11.98,
+              "end": 12.38,
+              "probability": 0.998
+            },
+            {
+              "word": "Cheer",
+              "start": 12.92,
+              "end": 13.06,
+              "probability": 0.975
+            },
+            {
+              "word": "each",
+              "start": 13.06,
+              "end": 13.26,
+              "probability": 0.999
+            },
+            {
+              "word": "other",
+              "start": 13.26,
+              "end": 13.38,
+              "probability": 0.994
+            },
+            {
+              "word": "on.",
+              "start": 13.38,
+              "end": 13.72,
+              "probability": 0.997
+            },
+            {
+              "word": "No",
+              "start": 15.18,
+              "end": 15.58,
+              "probability": 0.823
+            }
+          ]
+        },
+        {
+          "id": "begin",
+          "text": "No experience needed. Start at your own pace.",
+          "kind": "begin",
+          "minSeconds": 3.8,
+          "start": 15.3,
+          "end": 18.46666666666667,
+          "startFrame": 459,
+          "endFrame": 554,
+          "voiceEnd": 18.075083333333335,
+          "voiceEndFrame": 543,
+          "words": [
+            {
+              "word": "experience",
+              "start": 15.58,
+              "end": 16.14,
+              "probability": 0.997
+            },
+            {
+              "word": "needed.",
+              "start": 16.14,
+              "end": 16.56,
+              "probability": 0.999
+            },
+            {
+              "word": "Start",
+              "start": 17.02,
+              "end": 17.22,
+              "probability": 0.999
+            },
+            {
+              "word": "at",
+              "start": 17.22,
+              "end": 17.34,
+              "probability": 0.998
+            },
+            {
+              "word": "your",
+              "start": 17.34,
+              "end": 17.44,
+              "probability": 0.997
+            },
+            {
+              "word": "own",
+              "start": 17.44,
+              "end": 17.6,
+              "probability": 0.999
+            },
+            {
+              "word": "pace.",
+              "start": 17.6,
+              "end": 17.9,
+              "probability": 1.0
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "text": "Book your trial class at Alkimi, South Austin.",
+          "kind": "cta",
+          "minSeconds": 3.5,
+          "start": 18.466666666666665,
+          "end": 23.833333333333332,
+          "startFrame": 554,
+          "endFrame": 715,
+          "voiceEnd": 21.308166666666665,
+          "voiceEndFrame": 640,
+          "words": [
+            {
+              "word": "Book",
+              "start": 18.56,
+              "end": 18.64,
+              "probability": 0.997
+            },
+            {
+              "word": "your",
+              "start": 18.64,
+              "end": 18.82,
+              "probability": 0.994
+            },
+            {
+              "word": "trial",
+              "start": 18.82,
+              "end": 19.08,
+              "probability": 0.916
+            },
+            {
+              "word": "class",
+              "start": 19.08,
+              "end": 19.42,
+              "probability": 0.996
+            },
+            {
+              "word": "at",
+              "start": 19.42,
+              "end": 19.64,
+              "probability": 0.997
+            },
+            {
+              "word": "Alkimi,",
+              "start": 19.64,
+              "end": 20.02,
+              "probability": 0.981
+            },
+            {
+              "word": "South",
+              "start": 20.4,
+              "end": 20.68,
+              "probability": 0.996
+            },
+            {
+              "word": "Austin.",
+              "start": 20.68,
+              "end": 21.18,
+              "probability": 0.999
+            }
+          ]
+        }
+      ],
+      "alignmentText": "Build confidence. One class at a time. Women's jiu -jitsu at Alkimi, South Austin. A women -only class. Led by a female coach. Practical skills. Real support. Train together. Cheer each other on. No experience needed. Start at your own pace. Book your trial class at Alkimi, South Austin."
+    }
+  ],
+  "alignment": "faster-whisper small.en int8, local cached model. Word timestamps machine-aligned; user listening review required for final."
+}

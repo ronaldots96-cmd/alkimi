@@ -1,0 +1,96 @@
+{
+  "name": "Alkimi | LP Black Friday -> GoHighLevel (pipeline NEW)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "alkimi-black-friday",
+        "options": {}
+      },
+      "id": "0b1f8a52-3d1a-4c3e-9a51-bf0000000001",
+      "name": "Webhook Black Friday",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "alkimi-black-friday"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Normalize the LP payload (URL-encoded form from black-friday/index.html) for GoHighLevel.\nconst b = $input.first().json.body || {};\nconst parts = String(b.name || '').trim().split(/\\s+/);\nconst january = b.offer_option === 'january';\nconst programs = { toddlers: 'Toddlers 3-5', kids: 'Kids 6-14', women: 'Women', fundamentals: 'Fundamentals', advanced: 'Advanced', 'not-sure': 'Not sure yet' };\nconst program = programs[b.program] || 'Not sure yet';\nconst option = january ? 'Start in January ($100 deposit)' : 'Start now (November)';\nconst attribution = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid', 'fbclid', 'landing_page', 'event_id']\n  .filter(k => b[k]).map(k => `${k}: ${b[k]}`).join('\\n');\nreturn [{ json: {\n  firstName: parts[0] || '',\n  lastName: parts.slice(1).join(' '),\n  email: String(b.email || '').trim().toLowerCase(),\n  phone: String(b.phone || '').trim(),\n  source: b.source || 'LP Black Friday',\n  option,\n  program,\n  tags: ['black-friday-2026', 'lp-black-friday', january ? 'bf-january-deposit' : 'bf-start-now', 'program-' + (b.program || 'not-sure')],\n  opportunityName: `${String(b.name || '').trim()} | Black Friday | ${option} | ${program}`,\n  note: `LP Black Friday\\nOption: ${option}\\nProgram: ${program}\\nSMS/email consent: ${b.consent === 'yes' ? 'yes' : 'no'}\\nSubmitted: ${b.submitted_at || ''}\\n${attribution}`\n} }];"
+      },
+      "id": "0b1f8a52-3d1a-4c3e-9a51-bf0000000002",
+      "name": "Normalize lead",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/contacts/upsert",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [ { "name": "Version", "value": "2021-07-28" } ] },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ locationId: '4H7Pz2LOpokICVNCMRXT', firstName: $json.firstName, lastName: $json.lastName, email: $json.email, phone: $json.phone, source: $json.source, tags: $json.tags }) }}",
+        "options": {}
+      },
+      "id": "0b1f8a52-3d1a-4c3e-9a51-bf0000000003",
+      "name": "GHL upsert contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [440, 0],
+      "credentials": { "httpHeaderAuth": { "id": "REPLACE_ME", "name": "GHL Alkimi (Authorization: Bearer)" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://services.leadconnectorhq.com/opportunities/",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [ { "name": "Version", "value": "2021-07-28" } ] },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ locationId: '4H7Pz2LOpokICVNCMRXT', pipelineId: 'U0It4MwocNLQ21btrToX', pipelineStageId: 'a7640a3c-ee78-4ace-a20b-708f9603f9f4', contactId: $json.contact.id, name: $('Normalize lead').item.json.opportunityName, status: 'open', source: 'LP Black Friday' }) }}",
+        "options": {}
+      },
+      "id": "0b1f8a52-3d1a-4c3e-9a51-bf0000000004",
+      "name": "GHL create opportunity (NEW)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [660, 0],
+      "credentials": { "httpHeaderAuth": { "id": "REPLACE_ME", "name": "GHL Alkimi (Authorization: Bearer)" } }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ 'https://services.leadconnectorhq.com/contacts/' + $('GHL upsert contact').item.json.contact.id + '/notes' }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [ { "name": "Version", "value": "2021-07-28" } ] },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ body: $('Normalize lead').item.json.note }) }}",
+        "options": {}
+      },
+      "id": "0b1f8a52-3d1a-4c3e-9a51-bf0000000005",
+      "name": "GHL note (option, program, UTMs)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [880, 0],
+      "credentials": { "httpHeaderAuth": { "id": "REPLACE_ME", "name": "GHL Alkimi (Authorization: Bearer)" } }
+    }
+  ],
+  "connections": {
+    "Webhook Black Friday": { "main": [[{ "node": "Normalize lead", "type": "main", "index": 0 }]] },
+    "Normalize lead": { "main": [[{ "node": "GHL upsert contact", "type": "main", "index": 0 }]] },
+    "GHL upsert contact": { "main": [[{ "node": "GHL create opportunity (NEW)", "type": "main", "index": 0 }]] },
+    "GHL create opportunity (NEW)": { "main": [[{ "node": "GHL note (option, program, UTMs)", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" },
+  "meta": { "notes": "Import into n8n, pick the GHL header-auth credential (private integration token, never in this file), then activate. The LP posts to /webhook/alkimi-black-friday." }
+}

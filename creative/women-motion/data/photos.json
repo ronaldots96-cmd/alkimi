@@ -1,0 +1,458 @@
+[
+  {
+    "id": "D051",
+    "tier": "A",
+    "role": "Community opening, Confidence close",
+    "description": "Smiling seated woman in green interacting with a woman in purple. Foreground expression is the focal point.",
+    "crop": [
+      0.26,
+      0.14,
+      0.74,
+      0.52
+    ],
+    "carouselCrop": [
+      0.26,
+      0.18,
+      0.74,
+      0.52
+    ],
+    "scores": [
+      4,
+      4,
+      4,
+      5,
+      5,
+      3
+    ],
+    "note": "IMG_4206 provided and approved previously by user. Avoid placing text over the seated face.",
+    "weighted_score": 87,
+    "source_file_id": "1nMEhyeDDBHhZyAaJaNlHAxIycRratrds",
+    "source_path": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_assets\\raw\\drive\\root\\IMG_4206.HEIC",
+    "original_filename": "IMG_4206.HEIC",
+    "decoded_source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\e63a69a6a12e8245.jpg",
+    "source_hash": "e63a69a6a12e82452c34df30316990ba943a60c981e7224a5ed872304a672b8e",
+    "derivatives": {
+      "9x16": {
+        "box": {
+          "left": 0,
+          "top": 688,
+          "width": 3024,
+          "height": 1849
+        },
+        "file": "img/D051-9x16.webp",
+        "width": 1300,
+        "bytes": 127794
+      },
+      "4x5": {
+        "box": {
+          "left": 0,
+          "top": 582,
+          "width": 3024,
+          "height": 2061
+        },
+        "file": "img/D051-4x5.webp",
+        "width": 1300,
+        "bytes": 147524
+      }
+    }
+  },
+  {
+    "id": "D011",
+    "tier": "A",
+    "role": "Guided practice, Community carousel",
+    "description": "Three women practicing together beside a padded wall. Two visible faces and a close interaction.",
+    "crop": [
+      0.2,
+      0.29,
+      0.59,
+      0.42
+    ],
+    "carouselCrop": [
+      0.16,
+      0.27,
+      0.67,
+      0.46
+    ],
+    "scores": [
+      4,
+      4,
+      5,
+      4,
+      5,
+      5
+    ],
+    "note": "Original of LP women-hero. Keep the face at the lower left, not just the instructor.",
+    "weighted_score": 91,
+    "source_file_id": "1oDG4_-lrko7MeVXO8ZEU2k5ZNwJsP0Vz",
+    "source_path": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_assets\\raw\\drive\\Fotos Ads\\IMG_3669.HEIC",
+    "original_filename": "IMG_3669.HEIC",
+    "decoded_source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\e4cde9cdad8065c3.jpg",
+    "source_hash": "e4cde9cdad8065c30047e1c0eaefb459fb02e2848fdfbe555ba17fe809de397f",
+    "derivatives": {
+      "9x16": {
+        "box": {
+          "left": 113,
+          "top": 1169,
+          "width": 2768,
+          "height": 1693
+        },
+        "file": "img/D011-9x16.webp",
+        "width": 1300,
+        "bytes": 136206
+      },
+      "4x5": {
+        "box": {
+          "left": 255,
+          "top": 1169,
+          "width": 2483,
+          "height": 1693
+        },
+        "file": "img/D011-4x5.webp",
+        "width": 1300,
+        "bytes": 149978
+      }
+    }
+  },
+  {
+    "id": "D016",
+    "tier": "A",
+    "role": "Women-only class, Community carousel",
+    "description": "Small group watching a technique explanation, with a pointing gesture.",
+    "crop": [
+      0.07,
+      0.21,
+      0.89,
+      0.49
+    ],
+    "carouselCrop": [
+      0.07,
+      0.23,
+      0.89,
+      0.5
+    ],
+    "scores": [
+      4,
+      4,
+      4,
+      4,
+      5,
+      4
+    ],
+    "note": "Original of LP women-class. Preserve the three faces above the foreground participant.",
+    "weighted_score": 85,
+    "source_file_id": "1jBun-algBbPWn6Bf1mUAHj0yntVTzZaw",
+    "source_path": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_assets\\raw\\drive\\Fotos Ads\\IMG_3786.HEIC",
+    "original_filename": "IMG_3786.HEIC",
+    "decoded_source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\ab3a87f3fd82d265.jpg",
+    "source_hash": "ab3a87f3fd82d265d6e8547de0e2f04851774537356868e60d6e6f890422e1d0",
+    "derivatives": {
+      "9x16": {
+        "box": {
+          "left": 0,
+          "top": 910,
+          "width": 3024,
+          "height": 1849
+        },
+        "file": "img/D016-9x16.webp",
+        "width": 1300,
+        "bytes": 134240
+      },
+      "4x5": {
+        "box": {
+          "left": 109,
+          "top": 847,
+          "width": 2897,
+          "height": 1975
+        },
+        "file": "img/D016-4x5.webp",
+        "width": 1300,
+        "bytes": 151266
+      }
+    }
+  },
+  {
+    "id": "D002",
+    "tier": "A",
+    "role": "Female coach, Confidence opening photo",
+    "description": "Standing black-belt woman on the left observing paired practice on the right.",
+    "crop": [
+      0.04,
+      0.2,
+      0.94,
+      0.51
+    ],
+    "carouselCrop": [
+      0.04,
+      0.24,
+      0.94,
+      0.51
+    ],
+    "scores": [
+      5,
+      4,
+      4,
+      4,
+      5,
+      4
+    ],
+    "note": "Original of LP women-coach. A wide panel preserves the instructor AND class; a centered vertical crop would lose her.",
+    "weighted_score": 88,
+    "source_file_id": "1Hr7eIt5ugwSg4zYsdeom5VQbDSnRgmw-",
+    "source_path": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_assets\\raw\\drive\\Fotos Ads\\IMG_3613.HEIC",
+    "original_filename": "IMG_3613.HEIC",
+    "decoded_source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\996fb61b3786cd61.jpg",
+    "source_hash": "996fb61b3786cd6137e9e3e1d178560818d362794488d74c70df96184ef5cef6",
+    "derivatives": {
+      "9x16": {
+        "box": {
+          "left": 0,
+          "top": 1118,
+          "width": 3716,
+          "height": 2273
+        },
+        "file": "img/D002-9x16.webp",
+        "width": 1300,
+        "bytes": 174524
+      },
+      "4x5": {
+        "box": {
+          "left": 9,
+          "top": 991,
+          "width": 3707,
+          "height": 2527
+        },
+        "file": "img/D002-4x5.webp",
+        "width": 1300,
+        "bytes": 196254
+      }
+    }
+  },
+  {
+    "id": "D005",
+    "tier": "B",
+    "role": "Practice carousel",
+    "description": "Two women practicing on the mat, with a visible smile on the right.",
+    "crop": [
+      0.14,
+      0.2,
+      0.81,
+      0.46
+    ],
+    "carouselCrop": [
+      0.12,
+      0.25,
+      0.85,
+      0.44
+    ],
+    "scores": [
+      3,
+      4,
+      4,
+      5,
+      4,
+      3
+    ],
+    "note": "Original of LP women-final. Slight motion softness. Supporting photo, not opening hero.",
+    "weighted_score": 79,
+    "source_file_id": "10OfC0enmkBkn3sL2i-P-3jQ4LuWgTMVX",
+    "source_path": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_assets\\raw\\drive\\Fotos Ads\\IMG_2974.HEIC",
+    "original_filename": "IMG_2974.HEIC",
+    "decoded_source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\d8b72b6ef0df175e.jpg",
+    "source_hash": "d8b72b6ef0df175ef186d131f3536d3c5acb7c73d124242f9aec49662087db49",
+    "derivatives": {
+      "9x16": {
+        "box": {
+          "left": 0,
+          "top": 1040,
+          "width": 2268,
+          "height": 1387
+        },
+        "file": "img/D005-9x16.webp",
+        "width": 1300,
+        "bytes": 141172
+      },
+      "4x5": {
+        "box": {
+          "left": 0,
+          "top": 961,
+          "width": 2268,
+          "height": 1546
+        },
+        "file": "img/D005-4x5.webp",
+        "width": 1300,
+        "bytes": 161592
+      }
+    }
+  },
+  {
+    "id": "D049",
+    "tier": "A",
+    "role": "Self-defense hook and practice",
+    "description": "Two foreground women practicing grip control. Both faces and hands visible.",
+    "crop": [
+      0.38,
+      0.3,
+      0.62,
+      0.54
+    ],
+    "carouselCrop": [
+      0.35,
+      0.34,
+      0.65,
+      0.54
+    ],
+    "scores": [
+      4,
+      4,
+      4,
+      4,
+      5,
+      4
+    ],
+    "note": "Editorial illustration of supervised practice, not a claim that this frame teaches a specific escape.",
+    "weighted_score": 85,
+    "source_file_id": "1Ljcnli6aU2NOVUY5t3ZEs3nHSzDCtnyD",
+    "source_path": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_assets\\raw\\drive\\root\\IMG_4216.HEIC",
+    "original_filename": "IMG_4216.HEIC",
+    "decoded_source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\00114c684f9aea47.jpg",
+    "source_hash": "00114c684f9aea4788d39206be9f3fade20d3e45c0ab2423425bae4d31c72263",
+    "derivatives": {
+      "9x16": {
+        "box": {
+          "left": 0,
+          "top": 1373,
+          "width": 3024,
+          "height": 1849
+        },
+        "file": "img/D049-9x16.webp",
+        "width": 1300,
+        "bytes": 124052
+      },
+      "4x5": {
+        "box": {
+          "left": 0,
+          "top": 1267,
+          "width": 3024,
+          "height": 2061
+        },
+        "file": "img/D049-4x5.webp",
+        "width": 1300,
+        "bytes": 133774
+      }
+    }
+  },
+  {
+    "id": "D054",
+    "tier": "B",
+    "role": "Self-defense carousel",
+    "description": "Close foreground ground drill with other pairs visible behind.",
+    "crop": [
+      0.18,
+      0.52,
+      0.76,
+      0.38
+    ],
+    "carouselCrop": [
+      0.18,
+      0.52,
+      0.76,
+      0.38
+    ],
+    "scores": [
+      4,
+      4,
+      4,
+      3,
+      4,
+      3
+    ],
+    "note": "Use as supporting action only; one participant's face is naturally hidden.",
+    "weighted_score": 74,
+    "source_file_id": "18aozP_OCYjzIy2eZ1t4bWPcx5cZSQFh2",
+    "source_path": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_assets\\raw\\drive\\root\\IMG_4169.HEIC",
+    "original_filename": "IMG_4169.HEIC",
+    "decoded_source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\0af3ba6069563b92.jpg",
+    "source_hash": "0af3ba6069563b92e40260b2ed48aec69ab4c6bdc48a74e36598bafd114ab733",
+    "derivatives": {
+      "9x16": {
+        "box": {
+          "left": 441,
+          "top": 2097,
+          "width": 2504,
+          "height": 1532
+        },
+        "file": "img/D054-9x16.webp",
+        "width": 1300,
+        "bytes": 113506
+      },
+      "4x5": {
+        "box": {
+          "left": 544,
+          "top": 2079,
+          "width": 2298,
+          "height": 1566
+        },
+        "file": "img/D054-4x5.webp",
+        "width": 1300,
+        "bytes": 125108
+      }
+    }
+  },
+  {
+    "id": "D055",
+    "tier": "B",
+    "role": "Community group context and reserve",
+    "description": "Women seated around an observed demonstration. Several profiles, with backs in the foreground.",
+    "crop": [
+      0.02,
+      0.28,
+      0.96,
+      0.39
+    ],
+    "carouselCrop": [
+      0.02,
+      0.28,
+      0.96,
+      0.42
+    ],
+    "scores": [
+      3,
+      4,
+      4,
+      3,
+      4,
+      3
+    ],
+    "note": "Wide group context, not individual portrait. No artificial vertical zoom.",
+    "weighted_score": 71,
+    "source_file_id": "14lQcHqL6l6k_mbKxDq2H3-Sw_qvKDU3P",
+    "source_path": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_assets\\raw\\drive\\root\\IMG_4142.HEIC",
+    "original_filename": "IMG_4142.HEIC",
+    "decoded_source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\00d1ab664955774f.jpg",
+    "source_hash": "00d1ab664955774fc6fba6104ca1b353c6226f1186a6b479279bc0cad275ddb9",
+    "derivatives": {
+      "9x16": {
+        "box": {
+          "left": 60,
+          "top": 1027,
+          "width": 2903,
+          "height": 1775
+        },
+        "file": "img/D055-9x16.webp",
+        "width": 1300,
+        "bytes": 117092
+      },
+      "4x5": {
+        "box": {
+          "left": 60,
+          "top": 926,
+          "width": 2903,
+          "height": 1979
+        },
+        "file": "img/D055-4x5.webp",
+        "width": 1300,
+        "bytes": 133932
+      }
+    }
+  }
+]

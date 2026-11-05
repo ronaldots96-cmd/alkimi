@@ -1,0 +1,35 @@
+{
+  "revision":"v2-reference-rebuild",
+  "voiceStatus":"Local neural guide, not Emma and not approved campaign voice. Zero external generation credits.",
+  "fps":30,
+  "holdSeconds":2.5,
+  "concepts":[
+    {"id":"community","segments":[
+      {"id":"hook","text":"Find women who have your back.","kind":"hero","photo":"D051","minSeconds":3.1},
+      {"id":"women","text":"Women's jiu-jitsu at Alkimi, South Austin.","kind":"women","photo":"D016","minSeconds":3.3},
+      {"id":"coach","text":"A women-only class. Led by a female coach.","kind":"coach","photo":"D002","minSeconds":3.6},
+      {"id":"together","text":"Train together. Cheer each other on.","kind":"carousel","photos":["D011","D005","D055"],"minSeconds":3.6},
+      {"id":"confidence","text":"Build confidence, one class at a time.","kind":"confidence","photo":"D049","minSeconds":3.2},
+      {"id":"begin","text":"No experience needed. Start at your own pace.","kind":"begin","minSeconds":3.8},
+      {"id":"cta","text":"Book your trial class at Alkimi, South Austin.","kind":"cta","minSeconds":3.5}
+    ]},
+    {"id":"self-defense","segments":[
+      {"id":"hook","text":"You don't need to be stronger. Learn what to do.","kind":"defenseHook","photo":"D049","minSeconds":3.8},
+      {"id":"skills","text":"Break a grip. Get back up. Get away.","kind":"skills","minSeconds":3.8},
+      {"id":"practice","text":"Practice real self-defense, with technique and guidance.","kind":"defensePractice","photo":"D011","minSeconds":3.4},
+      {"id":"coach","text":"A women-only class. Led by a female coach.","kind":"coach","photo":"D002","minSeconds":3.6},
+      {"id":"together","text":"Learn together. Support each other.","kind":"carousel","photos":["D016","D054","D055"],"minSeconds":3.4},
+      {"id":"begin","text":"No experience needed. Start at your own pace.","kind":"begin","minSeconds":3.8},
+      {"id":"cta","text":"Book your trial class at Alkimi, South Austin.","kind":"cta","minSeconds":3.5}
+    ]},
+    {"id":"confidence","segments":[
+      {"id":"hook","text":"Build confidence. One class at a time.","kind":"confidenceHook","minSeconds":3.3},
+      {"id":"women","text":"Women's jiu-jitsu at Alkimi, South Austin.","kind":"women","photo":"D016","minSeconds":3.3},
+      {"id":"coach","text":"A women-only class. Led by a female coach.","kind":"coach","photo":"D002","minSeconds":3.6},
+      {"id":"practice","text":"Practical skills. Real support.","kind":"defensePractice","photo":"D011","minSeconds":2.6},
+      {"id":"together","text":"Train together. Cheer each other on.","kind":"carousel","photos":["D005","D054","D055"],"minSeconds":3.6},
+      {"id":"begin","text":"No experience needed. Start at your own pace.","kind":"begin","minSeconds":3.8},
+      {"id":"cta","text":"Book your trial class at Alkimi, South Austin.","kind":"cta","minSeconds":3.5}
+    ]}
+  ]
+}

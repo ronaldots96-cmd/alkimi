@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", "module": "ESNext", "jsx": "react-jsx",
+    "moduleResolution": "node", "esModuleInterop": true, "resolveJsonModule": true,
+    "skipLibCheck": true, "strict": true, "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "remotion": ["../../../Motion Kids/alkimi-motion/node_modules/remotion"],
+      "react": ["../../../Motion Kids/alkimi-motion/node_modules/@types/react"],
+      "react/*": ["../../../Motion Kids/alkimi-motion/node_modules/@types/react/*"]
+    },
+    "typeRoots": ["../../../Motion Kids/alkimi-motion/node_modules/@types"]
+  },
+  "include": ["src", "data/edit-plan.json"]
+}

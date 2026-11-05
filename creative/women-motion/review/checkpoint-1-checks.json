@@ -1,0 +1,90 @@
+{
+  "stage": "Checkpoint 1, no narration or final masters",
+  "date": "2026-10-15",
+  "inventory": {
+    "checked": "2026-10-15",
+    "remotePhotoPlacements": 69,
+    "uniqueLocalPhotos": 59,
+    "localPlacements": 69,
+    "missingLocally": []
+  },
+  "copy": [
+    {
+      "concept": "community",
+      "englishCopyPunctuation": true,
+      "noFreeOffer": true,
+      "voiceWords": 60,
+      "shortVoiceWords": 19,
+      "plannedDuration": 28.4,
+      "hasAudio": false,
+      "photoIds": [
+        "D051",
+        "D016",
+        "D011",
+        "D005",
+        "D055",
+        "D002"
+      ]
+    },
+    {
+      "concept": "self-defense",
+      "englishCopyPunctuation": true,
+      "noFreeOffer": true,
+      "voiceWords": 63,
+      "shortVoiceWords": 16,
+      "plannedDuration": 30.4,
+      "hasAudio": false,
+      "photoIds": [
+        "D049",
+        "D016",
+        "D054",
+        "D011",
+        "D002"
+      ]
+    },
+    {
+      "concept": "confidence",
+      "englishCopyPunctuation": true,
+      "noFreeOffer": true,
+      "voiceWords": 57,
+      "shortVoiceWords": 20,
+      "plannedDuration": 28.6,
+      "hasAudio": false,
+      "photoIds": [
+        "D002",
+        "D011",
+        "D016",
+        "D005",
+        "D055",
+        "D051"
+      ]
+    }
+  ],
+  "solidTextContrast": [
+    {
+      "pair": "White on Gunmetal",
+      "ratio": 18.38
+    },
+    {
+      "pair": "Gold text on Gunmetal",
+      "ratio": 14.86
+    },
+    {
+      "pair": "Rose label on Gunmetal",
+      "ratio": 10.12
+    },
+    {
+      "pair": "Deep Rose on Blush",
+      "ratio": 7.78
+    },
+    {
+      "pair": "Gunmetal on Blush",
+      "ratio": 15.39
+    },
+    {
+      "pair": "CTA darkest stop",
+      "ratio": 6.16
+    }
+  ],
+  "creditConsumption": 0
+}

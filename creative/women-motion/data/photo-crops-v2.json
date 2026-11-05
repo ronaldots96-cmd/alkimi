@@ -1,0 +1,362 @@
+[
+  {
+    "id": "D051",
+    "variant": "portrait",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\e63a69a6a12e8245.jpg",
+    "extract": {
+      "left": 756,
+      "top": 0,
+      "width": 2268,
+      "height": 4032
+    },
+    "file": "img/v2/D051-portrait.webp",
+    "width": 1237,
+    "height": 2200,
+    "bytes": 429314
+  },
+  {
+    "id": "D051",
+    "variant": "feed",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\e63a69a6a12e8245.jpg",
+    "extract": {
+      "left": 423,
+      "top": 645,
+      "width": 2540,
+      "height": 3185
+    },
+    "file": "img/v2/D051-feed.webp",
+    "width": 1356,
+    "height": 1700,
+    "bytes": 330982
+  },
+  {
+    "id": "D051",
+    "variant": "card",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\e63a69a6a12e8245.jpg",
+    "extract": {
+      "left": 786,
+      "top": 685,
+      "width": 2237,
+      "height": 2782
+    },
+    "file": "img/v2/D051-card.webp",
+    "width": 1126,
+    "height": 1400,
+    "bytes": 237026
+  },
+  {
+    "id": "D016",
+    "variant": "portrait",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\ab3a87f3fd82d265.jpg",
+    "extract": {
+      "left": 151,
+      "top": 0,
+      "width": 2268,
+      "height": 4032
+    },
+    "file": "img/v2/D016-portrait.webp",
+    "width": 1237,
+    "height": 2200,
+    "bytes": 462532
+  },
+  {
+    "id": "D016",
+    "variant": "feed",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\ab3a87f3fd82d265.jpg",
+    "extract": {
+      "left": 60,
+      "top": 403,
+      "width": 2903,
+      "height": 3628
+    },
+    "file": "img/v2/D016-feed.webp",
+    "width": 1360,
+    "height": 1700,
+    "bytes": 391038
+  },
+  {
+    "id": "D016",
+    "variant": "card",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\ab3a87f3fd82d265.jpg",
+    "extract": {
+      "left": 60,
+      "top": 726,
+      "width": 2661,
+      "height": 3306
+    },
+    "file": "img/v2/D016-card.webp",
+    "width": 1127,
+    "height": 1400,
+    "bytes": 256902
+  },
+  {
+    "id": "D002",
+    "variant": "portrait",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\996fb61b3786cd61.jpg",
+    "extract": {
+      "left": 0,
+      "top": 0,
+      "width": 2787,
+      "height": 4956
+    },
+    "file": "img/v2/D002-portrait.webp",
+    "width": 1237,
+    "height": 2200,
+    "bytes": 365854
+  },
+  {
+    "id": "D002",
+    "variant": "feed",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\996fb61b3786cd61.jpg",
+    "extract": {
+      "left": 0,
+      "top": 595,
+      "width": 3716,
+      "height": 4361
+    },
+    "file": "img/v2/D002-feed.webp",
+    "width": 1449,
+    "height": 1700,
+    "bytes": 421754
+  },
+  {
+    "id": "D002",
+    "variant": "card",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\996fb61b3786cd61.jpg",
+    "extract": {
+      "left": 0,
+      "top": 743,
+      "width": 3158,
+      "height": 3964
+    },
+    "file": "img/v2/D002-card.webp",
+    "width": 1115,
+    "height": 1400,
+    "bytes": 257998
+  },
+  {
+    "id": "D011",
+    "variant": "portrait",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\e4cde9cdad8065c3.jpg",
+    "extract": {
+      "left": 544,
+      "top": 806,
+      "width": 1814,
+      "height": 3225
+    },
+    "file": "img/v2/D011-portrait.webp",
+    "width": 1237,
+    "height": 2200,
+    "bytes": 497112
+  },
+  {
+    "id": "D011",
+    "variant": "feed",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\e4cde9cdad8065c3.jpg",
+    "extract": {
+      "left": 423,
+      "top": 726,
+      "width": 2328,
+      "height": 2903
+    },
+    "file": "img/v2/D011-feed.webp",
+    "width": 1363,
+    "height": 1700,
+    "bytes": 412370
+  },
+  {
+    "id": "D011",
+    "variant": "card",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\e4cde9cdad8065c3.jpg",
+    "extract": {
+      "left": 514,
+      "top": 968,
+      "width": 1965,
+      "height": 2459
+    },
+    "file": "img/v2/D011-card.webp",
+    "width": 1119,
+    "height": 1400,
+    "bytes": 277960
+  },
+  {
+    "id": "D005",
+    "variant": "portrait",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\d8b72b6ef0df175e.jpg",
+    "extract": {
+      "left": 227,
+      "top": 484,
+      "width": 1882,
+      "height": 3346
+    },
+    "file": "img/v2/D005-portrait.webp",
+    "width": 1237,
+    "height": 2200,
+    "bytes": 506084
+  },
+  {
+    "id": "D005",
+    "variant": "feed",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\d8b72b6ef0df175e.jpg",
+    "extract": {
+      "left": 227,
+      "top": 645,
+      "width": 1882,
+      "height": 2338
+    },
+    "file": "img/v2/D005-feed.webp",
+    "width": 1368,
+    "height": 1700,
+    "bytes": 388480
+  },
+  {
+    "id": "D005",
+    "variant": "card",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\d8b72b6ef0df175e.jpg",
+    "extract": {
+      "left": 227,
+      "top": 887,
+      "width": 1927,
+      "height": 2419
+    },
+    "file": "img/v2/D005-card.webp",
+    "width": 1115,
+    "height": 1400,
+    "bytes": 287592
+  },
+  {
+    "id": "D049",
+    "variant": "portrait",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\00114c684f9aea47.jpg",
+    "extract": {
+      "left": 756,
+      "top": 1008,
+      "width": 2268,
+      "height": 2822
+    },
+    "file": "img/v2/D049-portrait.webp",
+    "width": 1768,
+    "height": 2200,
+    "bytes": 469822
+  },
+  {
+    "id": "D049",
+    "variant": "feed",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\00114c684f9aea47.jpg",
+    "extract": {
+      "left": 756,
+      "top": 1008,
+      "width": 2268,
+      "height": 2822
+    },
+    "file": "img/v2/D049-feed.webp",
+    "width": 1366,
+    "height": 1700,
+    "bytes": 318822
+  },
+  {
+    "id": "D049",
+    "variant": "card",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\00114c684f9aea47.jpg",
+    "extract": {
+      "left": 756,
+      "top": 1089,
+      "width": 2268,
+      "height": 2822
+    },
+    "file": "img/v2/D049-card.webp",
+    "width": 1125,
+    "height": 1400,
+    "bytes": 231260
+  },
+  {
+    "id": "D054",
+    "variant": "portrait",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\0af3ba6069563b92.jpg",
+    "extract": {
+      "left": 454,
+      "top": 1290,
+      "width": 2268,
+      "height": 2741
+    },
+    "file": "img/v2/D054-portrait.webp",
+    "width": 1820,
+    "height": 2200,
+    "bytes": 417450
+  },
+  {
+    "id": "D054",
+    "variant": "feed",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\0af3ba6069563b92.jpg",
+    "extract": {
+      "left": 302,
+      "top": 1331,
+      "width": 2570,
+      "height": 2580
+    },
+    "file": "img/v2/D054-feed.webp",
+    "width": 1693,
+    "height": 1700,
+    "bytes": 329876
+  },
+  {
+    "id": "D054",
+    "variant": "card",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\0af3ba6069563b92.jpg",
+    "extract": {
+      "left": 302,
+      "top": 1331,
+      "width": 2570,
+      "height": 2580
+    },
+    "file": "img/v2/D054-card.webp",
+    "width": 1395,
+    "height": 1400,
+    "bytes": 241358
+  },
+  {
+    "id": "D055",
+    "variant": "portrait",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\00d1ab664955774f.jpg",
+    "extract": {
+      "left": 302,
+      "top": 887,
+      "width": 2268,
+      "height": 2822
+    },
+    "file": "img/v2/D055-portrait.webp",
+    "width": 1768,
+    "height": 2200,
+    "bytes": 454640
+  },
+  {
+    "id": "D055",
+    "variant": "feed",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\00d1ab664955774f.jpg",
+    "extract": {
+      "left": 60,
+      "top": 806,
+      "width": 2903,
+      "height": 2782
+    },
+    "file": "img/v2/D055-feed.webp",
+    "width": 1774,
+    "height": 1700,
+    "bytes": 402642
+  },
+  {
+    "id": "D055",
+    "variant": "card",
+    "source": "C:\\Users\\Ronaldo\\Desktop\\Projetos\\Meregali\\Alkimi\\Motion Kids\\alkimi-motion\\_cache\\conversions\\00d1ab664955774f.jpg",
+    "extract": {
+      "left": 60,
+      "top": 927,
+      "width": 2903,
+      "height": 2782
+    },
+    "file": "img/v2/D055-card.webp",
+    "width": 1461,
+    "height": 1400,
+    "bytes": 289730
+  }
+]

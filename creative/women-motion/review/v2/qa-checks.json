@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-15",
+  "renderedFiles": [
+    {
+      "filename": "alkimi_women_community_v2_9x16_review.mp4",
+      "width": 1080,
+      "height": 1920,
+      "frames": 704,
+      "duration": 23.467,
+      "video": "h264",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709",
+      "audio": "aac",
+      "sampleRate": "48000",
+      "channels": 2,
+      "LUFS": -16.02887906101142,
+      "truePeak4xDBTP": -4.01441764831543,
+      "MB": 9.94167,
+      "faststart": true
+    },
+    {
+      "filename": "alkimi_women_community_v2_4x5_review.mp4",
+      "width": 1080,
+      "height": 1350,
+      "frames": 704,
+      "duration": 23.467,
+      "video": "h264",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709",
+      "audio": "aac",
+      "sampleRate": "48000",
+      "channels": 2,
+      "LUFS": -16.02887906101142,
+      "truePeak4xDBTP": -4.01441764831543,
+      "MB": 9.293826,
+      "faststart": true
+    },
+    {
+      "filename": "alkimi_women_self_defense_v2_9x16_review.mp4",
+      "width": 1080,
+      "height": 1920,
+      "frames": 729,
+      "duration": 24.32,
+      "video": "h264",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709",
+      "audio": "aac",
+      "sampleRate": "48000",
+      "channels": 2,
+      "LUFS": -16.025584473838034,
+      "truePeak4xDBTP": -3.9938905239105225,
+      "MB": 8.381676,
+      "faststart": true
+    },
+    {
+      "filename": "alkimi_women_self_defense_v2_4x5_review.mp4",
+      "width": 1080,
+      "height": 1350,
+      "frames": 729,
+      "duration": 24.32,
+      "video": "h264",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709",
+      "audio": "aac",
+      "sampleRate": "48000",
+      "channels": 2,
+      "LUFS": -16.025584473838034,
+      "truePeak4xDBTP": -3.9938905239105225,
+      "MB": 8.08357,
+      "faststart": true
+    },
+    {
+      "filename": "alkimi_women_confidence_v2_9x16_review.mp4",
+      "width": 1080,
+      "height": 1920,
+      "frames": 715,
+      "duration": 23.851,
+      "video": "h264",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709",
+      "audio": "aac",
+      "sampleRate": "48000",
+      "channels": 2,
+      "LUFS": -16.031284826604214,
+      "truePeak4xDBTP": -4.021318435668945,
+      "MB": 8.43369,
+      "faststart": true
+    },
+    {
+      "filename": "alkimi_women_confidence_v2_4x5_review.mp4",
+      "width": 1080,
+      "height": 1350,
+      "frames": 715,
+      "duration": 23.851,
+      "video": "h264",
+      "pixelFormat": "yuv420p",
+      "colorSpace": "bt709",
+      "audio": "aac",
+      "sampleRate": "48000",
+      "channels": 2,
+      "LUFS": -16.031284826604214,
+      "truePeak4xDBTP": -4.021318435668945,
+      "MB": 8.206797,
+      "faststart": true
+    }
+  ],
+  "publicAssetCount": 33,
+  "uniquePhotos": [
+    "D051",
+    "D016",
+    "D002",
+    "D011",
+    "D005",
+    "D055",
+    "D049",
+    "D054"
+  ],
+  "copyRulesPassed": true,
+  "contiguousTimelines": true,
+  "reviewLinksValid": true,
+  "hold": {
+    "endpointIdentical": true,
+    "hashes": [
+      {
+        "frame": 629,
+        "hash": "8619b841cb2b089d69276e1f10b2e1329df9f0fc27d5d4b0e30302b1b4f53316"
+      },
+      {
+        "frame": 703,
+        "hash": "8619b841cb2b089d69276e1f10b2e1329df9f0fc27d5d4b0e30302b1b4f53316"
+      }
+    ],
+    "voiceEnd": 20.9415,
+    "postVoiceHold": 2.5251666666666637,
+    "method": "Compare lossless rendered endpoints of final 75 frames. CTA/background implementation static throughout this interval."
+  }
+}

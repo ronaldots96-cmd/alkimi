@@ -2,5 +2,42 @@
 .wrangler/
 .dev.vars
 node_modules/
+
+# Local agent, editor and operating-system state
+.claude/
+.codex/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.tmp
+*.log
+
+# Local Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+
 # Bindings are configured in the Cloudflare dashboard; a committed wrangler.toml would take over that config
 wrangler.toml
+
+# Contains private GoHighLevel MCP configuration and is not a deployable workflow
+automation/n8n-mcp-gohighlevel.json
+
+# Source master preserved locally; the LP uses the compressed -web.mp4 already tracked
+assets/video/alkimi-black-friday-chloe-9x16.mp4
+
+# Regenerable Remotion review renders, visual QA intermediates and speech caches
+creative/women-motion/review/**/*.mp4
+creative/women-motion/review/contact-sheets/
+creative/women-motion/review/reference/
+creative/women-motion/review/selected-crops/
+creative/women-motion/review/stills/
+creative/women-motion/review/storyboards/
+creative/women-motion/review/v2/stills/
+creative/women-motion/review/v2/*storyboard.jpg
+creative/women-motion/review/v2/community-type-hook.jpg
+creative/women-motion/public/vo/guide-v2/*.f32

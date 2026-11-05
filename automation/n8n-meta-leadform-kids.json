@@ -1,0 +1,113 @@
+{
+  "name": "Alkimi Kids | Meta Lead Form → Leads sheet",
+  "nodes": [
+    {
+      "parameters": {
+        "event": "newLead",
+        "page": {
+          "__rl": true,
+          "value": "",
+          "mode": "list"
+        },
+        "form": {
+          "__rl": true,
+          "value": "",
+          "mode": "list"
+        },
+        "options": {}
+      },
+      "id": "a1",
+      "name": "Meta Lead Form (Kids)",
+      "type": "n8n-nodes-base.facebookLeadAdsTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "alkimi-kids-meta-leadform"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// n8n Code node: \"Normalize Meta lead\" (mode: Run Once for Each Item)\n// Turns a Meta Lead Ads lead into the SAME payload the Kids LP form sends,\n// so the existing /webhook/alkimi-kids flow saves it to the sheet and fires the email alert.\nconst lead = $json;\n\n// 1. Answers: works with the simplified output ({ data: {...} }) and the raw one ({ field_data: [...] })\nconst answers = {};\nif (lead.data && typeof lead.data === 'object' && !Array.isArray(lead.data)) {\n  Object.assign(answers, lead.data);\n}\nif (Array.isArray(lead.field_data)) {\n  for (const f of lead.field_data) answers[f.name] = Array.isArray(f.values) ? f.values.join(', ') : f.values;\n}\n\n// Meta builds custom-question keys from the question text, so match by keyword instead of exact key\nconst pick = (...patterns) => {\n  for (const [k, v] of Object.entries(answers)) {\n    if (patterns.some(p => p.test(k))) return String(v ?? '');\n  }\n  return '';\n};\nconst clean = v => String(v || '').replace(/_/g, ' ').replace(/\\s+/g, ' ').trim();\n\nconst name = pick(/^full_?name$/i, /^name$/i) ||\n  [pick(/^first_?name$/i), pick(/^last_?name$/i)].filter(Boolean).join(' ');\nconst email = pick(/^email$/i, /e-?mail/i);\nconst phone = pick(/^phone(_number)?$/i, /phone/i);\n\nconst childAge  = clean(pick(/how_?old/i, /child.?s?_?age/i, /^age$/i));                    // \"How old is your child?\"\nconst goal      = clean(pick(/matters/i, /goal/i));               // \"What matters most to you right now?\"\nconst location  = clean(pick(/south_?austin/i, /convenient/i));   // \"Is South Austin convenient for you?\"\nconst feeOk     = clean(pick(/fee/i));                      // \"$20 trial class fee... does that work?\"\nconst childName = clean(pick(/child.?s?_?name/i));                // only if you add this question later\n\n// 2. Attribution: the ad name carries the creative (screen_time_v1, bullying_v2, energy_v1...)\nconst get = (...paths) => {\n  for (const p of paths) {\n    const v = p.split('.').reduce((o, k) => (o == null ? undefined : o[k]), lead);\n    if (v) return String(v);\n  }\n  return '';\n};\nconst adName     = get('ad_name', 'ad.name');\nconst adsetName  = get('adset_name', 'adset.name');\nconst campaign   = get('campaign_name', 'campaign.name');\nconst formName   = get('form_name', 'form.name');\nconst angleMatch = adName.toLowerCase().match(/(screen_time|bullying|energy)_v\\d+/);\nconst isOrganic  = lead.is_organic === true || lead.is_organic === 'true';\n\nconst created = get('created_time');\nconst submittedAt = created ? new Date(created).toISOString() : new Date().toISOString();\n\nreturn {\n  json: {\n    // same fields as the LP form\n    submitted_at: submittedAt,\n    lp: 'kids',                                   // keeps the Kids layout in the email alert\n    name, email, phone,\n    child_name: childName,\n    child_age: childAge,\n    utm_source: 'facebook',\n    utm_medium: isOrganic ? 'organic_lead_form' : 'lead_form',   // LP traffic uses paid_social\n    utm_campaign: campaign || 'alkimi_kids_leadgen_oct26',\n    utm_term: adsetName,\n    utm_content: angleMatch ? angleMatch[0] : adName,\n    gclid: '', gbraid: '', wbraid: '', fbclid: '',\n    landing_page: 'meta_lead_form' + (formName ? ': ' + formName : ''),\n    referrer: '',\n    // extra fields from the native form (map them in the sheet node to keep them)\n    lead_source: 'meta_form',\n    meta_lead_id: get('id', 'leadgen_id'),\n    goal, location_fit: location, fee_ok: feeOk,\n  },\n};\n"
+      },
+      "id": "a2",
+      "name": "Normalize Meta lead",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://n8n.v4lisboatech.com.br/webhook/alkimi-kids",
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/x-www-form-urlencoded",
+        "body": "={{ new URLSearchParams(Object.entries($json).map(([k, v]) => [k, v == null ? '' : String(v)])).toString() }}",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "a3",
+      "name": "Send to Kids lead flow (sheet + email)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        520,
+        0
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 5000
+    },
+    {
+      "parameters": {
+        "content": "## Alkimi Kids: Meta native form → same lead flow as the LP\n\n1. **Meta Lead Form**: pick the Alkimi page and the Kids form (Facebook Lead Ads credential, account with admin on the page).\n2. **Normalize**: converts the Meta lead into the exact payload of the Kids LP form (name, email, phone, child_age, lp=kids, utm_*). Creative comes from the ad name (screen_time_v1, bullying_v2...).\n3. **Send**: posts to the existing `/webhook/alkimi-kids`, which already saves to the Leads sheet and sends the alert email.\n\nExtra fields sent: `lead_source`, `meta_lead_id`, `goal`, `location_fit`, `fee_ok`. They only show up in the sheet after you map them in the Google Sheets node of the Kids LP workflow.",
+        "height": 300,
+        "width": 520,
+        "color": 5
+      },
+      "id": "a4",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -340
+      ]
+    }
+  ],
+  "connections": {
+    "Meta Lead Form (Kids)": {
+      "main": [
+        [
+          {
+            "node": "Normalize Meta lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize Meta lead": {
+      "main": [
+        [
+          {
+            "node": "Send to Kids lead flow (sheet + email)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Chicago"
+  },
+  "pinData": {}
+}

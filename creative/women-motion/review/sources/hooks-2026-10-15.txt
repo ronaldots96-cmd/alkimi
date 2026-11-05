@@ -1,0 +1,81 @@
+Source: https://docs.google.com/document/d/1G-PdcIdqCh1rwR9_4fYvUdXf5rn6GTau_73yGVtrygI/edit
+Retrieved: 2026-10-15
+Source modified: 2026-09-30T16:24:19.275Z
+
+﻿#
+	Hook
+	Promise
+	Visual direction
+	CTA
+	1
+	Tired of feeling out of shape and out of gas by 40?
+	Real strength and conditioning — a sport that pushes you to show up daily and stay motivated to train.
+	Adult male mid-drill or mid-roll, visible effort and focus, tight crop, dark charcoal background with brass rim light — not a posed gym-selfie look.
+	Book Your Trial Class
+	2
+	Feeling disconnected — no real community of men who push you?
+	At ALKIMI, you train alongside men who show up for each other — real brotherhood, built on the mat every day.
+	Group shot, post-class, genuine camaraderie (hand on shoulder, laughing between rounds) — not a stiff lineup photo.
+	Join the Men's Program
+	3
+	Could you actually protect your family if it came down to it?
+	The most effective self-defense system ever created — learn real skills that work when it actually matters.
+	Close, controlled self-defense technique mid-execution; serious tone; small founder-credibility mark (Nicholas Meregali / World Champion) near the logo.
+	Book Your Trial Class
+	Women
+#
+	Hook
+	Promise
+	Visual direction
+	CTA
+	1
+	Do you feel unsafe walking alone?
+	The best self-defense ever created — built to work regardless of size or strength, so you feel safe again.
+	Woman executing a defensive technique, confident and controlled expression, soft brass rim light against the dark background.
+	Book Your Trial Class
+	2
+	Tired of feeling insecure in your own body?
+	Embody real strength and confidence — feel respected on the mat, and secure in your own body every day.
+	Woman training solo or on pads, strength/movement focus, natural post-training glow — not a fitness-influencer pose.
+	Join the Women's Program
+	3
+	Looking for a community of women who have your back?
+	A welcoming women's class where you train alongside women first, respected and supported, before joining the full academy.
+	Small group from the women's semi-private class, warm genuine connection between students, mat visible in background.
+	Meet the Women's Class
+	Kids
+Ad copy addresses the parent, not the child — both the hook and the targeting.
+#
+	Hook
+	Promise
+	Visual direction
+	CTA
+	1
+	Is your child glued to a screen all day?
+	Jiu-Jitsu swaps screen time for real connection — teamwork, friendship, and confidence, built face-to-face on the mat.
+	Kids training together, genuine laughter mid-drill; optional split-frame contrast with a phone screen.
+	Book a Trial Class
+	2
+	Is your child being bullied?
+	Jiu-Jitsu builds real confidence and self-defense skills to stand tall — never a bully, never a victim.
+	Kid in a calm, confident stance; coach nearby, supportive not confrontational tone.
+	Book a Trial Class
+	3
+	Is your child anxious, unfocused, or low on energy?
+	Jiu-Jitsu channels that energy into discipline, focus, and a healthy dose of confidence — the kind that carries into the classroom.
+	Kid mid-drill, focused expression, structured class environment visible behind them.
+	Book a Trial Class
+	Visual & layout direction (all 9 ads)
+* Background: dark charcoal/black, matching ALKIMI's existing palette — not a bright or generic gym-stock look. This keeps the premium, Valente-Brothers-style positioning intact.
+* Hook placement: top third of the frame, bold, Poppins Bold (same family used on the pricing cards), white or brass, 8–10 words max so it reads in under two seconds.
+* Promise placement: lower third, Montserrat, lighter weight, 1–2 lines.
+* Photography: real students and coaches at the South Austin facility — never stock photography. Mid-action or mid-drill framing over posed shots, to keep it authentic.
+* Logo: small ALKIMI wordmark in a bottom corner, consistent across all nine — same placement already used on the class-schedule graphics.
+* Segmentation cue: a subtle accent color per campaign so the three audiences are distinguishable at a glance in Ads Manager, while staying inside the core charcoal/white/brass system — e.g. brass for men, a softer rose-gold for women, a cooler accent for kids.
+* CTA: consistent per campaign, either baked into the image's bottom third or set as the ad's link-button text in Meta Ads Manager.
+Next steps
+* Confirm whether all 3 concepts per campaign run simultaneously as an A/B test, or launch one at a time per audience
+* Shoot or source photography matching the visual direction for each of the 9 concepts
+* Build creative in the established design system (Poppins Bold headline, Montserrat body, charcoal + brass palette)
+* Set up ad sets in Meta Ads Manager, one per audience — kids ads targeted at parents (age/interest targeting), not children
+* Route each campaign's trial bookings correctly: women's leads into the women's semi-private intro path, kids leads into the ALKIMIA beginner curriculum, men's leads into the standard trial flow

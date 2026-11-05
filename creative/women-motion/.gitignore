@@ -1,0 +1,4 @@
+_cache/
+_tools/*/node_modules/
+_tools/tts/models/
+_tools/alignment/

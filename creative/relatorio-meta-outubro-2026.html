@@ -1,0 +1,236 @@
+<title>Alkimi Meta · Outubro 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: relatório de leitura em coluna única para o dono da academia; tabelas roláveis; dourado só nos vídeos novos */
+:root{
+  --bg:#f6f5f1; --surface:#ffffff; --fg:#17191d; --muted:#5d6068; --line:#dddad2;
+  --gold:#9a6f17; --gold-soft:#f3e6c6; --good:#1f7a4d; --warn:#a4560f; --bad:#a3302a;
+  --bar:#2f3440; --link:#1f4f8f;
+  --display:"Montserrat",system-ui,sans-serif; --body:"Montserrat",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121417; --surface:#1b1e23; --fg:#ecebe6; --muted:#a2a5ad; --line:#2e323a;
+  --gold:#e0b45a; --gold-soft:#3a2f17; --good:#5cc48d; --warn:#e5a061; --bad:#ec8079; --bar:#c9ccd3; --link:#8fb8ef; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121417; --surface:#1b1e23; --fg:#ecebe6; --muted:#a2a5ad; --line:#2e323a;
+  --gold:#e0b45a; --gold-soft:#3a2f17; --good:#5cc48d; --warn:#e5a061; --bad:#ec8079; --bar:#c9ccd3; --link:#8fb8ef; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.6}
+a{color:var(--link);text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:2px}
+.wrap{max-width:960px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:44px}
+header{display:grid;gap:12px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(28px,5vw,40px);line-height:1.12;margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;font-size:21px;margin:0;text-wrap:balance}
+h3{font-size:15px;font-weight:700;margin:0}
+p{margin:0;max-width:68ch}
+.lede{color:var(--muted);max-width:70ch}
+section{display:grid;gap:16px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.kpi{background:var(--surface);padding:16px;display:grid;gap:4px;min-width:0}
+.kpi .v{font-family:var(--mono);font-size:26px;font-weight:500;font-variant-numeric:tabular-nums}
+.kpi .l{font-size:12.5px;color:var(--muted)}
+@media (max-width:700px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:700px}
+th,td{padding:10px 12px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:11.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;background:var(--bg)}
+th:first-child,td:first-child{text-align:left}
+td{font-family:var(--mono);font-variant-numeric:tabular-nums}
+td:first-child,td.watch{font-family:var(--body)}
+td:first-child{font-weight:500}
+td.watch{text-align:left;font-size:13px}
+th.watch{text-align:left}
+tr:last-child td{border-bottom:0}
+tr.new td{background:var(--gold-soft)}
+tr.off td{color:var(--muted)}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:99px;margin-left:6px;vertical-align:1px}
+.tag.new{background:var(--gold);color:var(--surface)}
+.tag.off{background:var(--line);color:var(--muted)}
+.g{color:var(--good);font-weight:500}.w{color:var(--warn);font-weight:500}.b{color:var(--bad);font-weight:500}
+.note{font-size:12.5px;color:var(--muted);max-width:75ch}
+.glossary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media (max-width:700px){.glossary{grid-template-columns:1fr}}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;display:grid;gap:2px;font-size:13px;min-width:0}
+.term b{font-size:13.5px}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px}
+.chart svg{width:100%;height:auto;display:block}
+.chart text{font-family:var(--mono);font-size:11px;fill:var(--muted)}
+.chart .val{fill:var(--fg);font-size:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:12px;align-content:start;min-width:0}
+ul.points{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+ul.points li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
+.dot{width:9px;height:9px;border-radius:50%;margin-top:8px}
+.dot.g{background:var(--good)}.dot.w{background:var(--warn)}.dot.b{background:var(--bad)}
+.hookbars{display:grid;gap:10px}
+.hb{display:grid;grid-template-columns:150px 1fr 56px;gap:10px;align-items:center;font-size:13px}
+.hb .track{height:12px;background:var(--bg);border-radius:3px;overflow:hidden}
+.hb .fill{height:100%;background:var(--bar)}
+.hb.new .fill{background:var(--gold)}
+.hb .n{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:480px){.hb{grid-template-columns:110px 1fr 48px}}
+.hooks{display:grid;gap:10px}
+.hook{display:grid;gap:2px;padding-left:12px;border-left:3px solid var(--gold)}
+.hook q{font-weight:600;quotes:"“" "”"}
+.hook span{font-size:13px;color:var(--muted)}
+ol.next{margin:0;padding-left:20px;display:grid;gap:10px;max-width:72ch}
+.folders{display:flex;flex-wrap:wrap;gap:10px 20px;font-size:13.5px}
+footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;display:grid;gap:6px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Alkimi Jiu-Jitsu · South Austin · Anúncios Meta (Facebook e Instagram) · Outubro 2026</div>
+  <h1>Em outubro, cada aluno interessado passou a custar metade do que custava na primeira semana</h1>
+  <p class="lede">Nicholas, este é o resumo do mês. Em outubro, 26 pessoas pediram aula experimental pelos anúncios. Na última semana foram 12, o triplo do começo do mês, e o custo de cada pedido caiu pela metade. A sua sugestão para o público masculino (abrir com uma pergunta sobre defesa pessoal e disciplina em vez de só "world champion") já está no ar desde sábado e é o anúncio que mais prende a atenção hoje.</p>
+</header>
+
+<section>
+  <h2>O mês em quatro números</h2>
+  <div class="kpis">
+    <div class="kpi"><span class="v">$1.072</span><span class="l">Investido em anúncios</span></div>
+    <div class="kpi"><span class="v">26</span><span class="l">Pedidos de aula experimental pelo formulário do anúncio</span></div>
+    <div class="kpi"><span class="v">$32</span><span class="l">Custo por pedido nas duas últimas semanas (era $65 na primeira)</span></div>
+    <div class="kpi"><span class="v">30,7 mil</span><span class="l">Vezes que os anúncios apareceram em Austin</span></div>
+  </div>
+  <p class="note">No mês inteiro, o custo médio por pedido foi $41. Esse número inclui os anúncios que levavam ao site no começo do mês. Os pedidos feitos pelo site entram por outro caminho e não estão contados aqui.</p>
+</section>
+
+<section>
+  <h2>Como o mês evoluiu, semana a semana</h2>
+  <p class="lede">Em 22/10 trocamos os anúncios antigos por vídeos novos, testando aberturas diferentes para cada público (pais, mulheres e homens). A melhora começa nessa semana.</p>
+  <div class="chart">
+    <svg viewBox="0 0 640 230" role="img" aria-label="Pedidos por semana: semana 1, 5 pedidos a $65 cada; semana 2, 4 a $51; semana 3, 8 a $31; semana 4, 12 a $32">
+      <line x1="40" y1="190" x2="620" y2="190" stroke="var(--line)"/>
+      <line x1="40" y1="130" x2="620" y2="130" stroke="var(--line)" stroke-dasharray="2 4"/>
+      <line x1="40" y1="70" x2="620" y2="70" stroke="var(--line)" stroke-dasharray="2 4"/>
+      <text x="32" y="194" text-anchor="end">0</text><text x="32" y="134" text-anchor="end">5</text><text x="32" y="74" text-anchor="end">10</text>
+      <rect x="80" y="130" width="90" height="60" fill="var(--bar)" opacity=".55"/>
+      <rect x="225" y="142" width="90" height="48" fill="var(--bar)" opacity=".55"/>
+      <rect x="370" y="94" width="90" height="96" fill="var(--bar)"/>
+      <rect x="515" y="46" width="90" height="144" fill="var(--gold)"/>
+      <text class="val" x="125" y="122" text-anchor="middle">5 · $65 cada</text>
+      <text class="val" x="270" y="134" text-anchor="middle">4 · $51 cada</text>
+      <text class="val" x="415" y="86" text-anchor="middle">8 · $31 cada</text>
+      <text class="val" x="560" y="38" text-anchor="middle">12 · $32 cada</text>
+      <text x="125" y="210" text-anchor="middle">05–11/10</text>
+      <text x="270" y="210" text-anchor="middle">12–18/10</text>
+      <text x="415" y="210" text-anchor="middle">19–25/10 · vídeos novos</text>
+      <text x="560" y="210" text-anchor="middle">26/10–01/11</text>
+      <text x="40" y="16">Pedidos de aula experimental por semana · custo por pedido</text>
+    </svg>
+  </div>
+  <div class="scroll"><table>
+    <thead><tr><th>Semana</th><th>Investido</th><th>Vezes exibido</th><th>Cliques no anúncio</th><th>% que clicou</th><th>Pedidos</th><th>Custo por pedido</th></tr></thead>
+    <tbody>
+      <tr><td>05–11/10</td><td>$323</td><td>11.851</td><td>116</td><td>0,98%</td><td>5</td><td class="b">$64.68</td></tr>
+      <tr><td>12–18/10</td><td>$204</td><td>4.850</td><td>49</td><td>1,01%</td><td>4</td><td class="w">$51.08</td></tr>
+      <tr><td>19–25/10</td><td>$252</td><td>5.788</td><td>88</td><td>1,52%</td><td>8</td><td class="g">$31.46</td></tr>
+      <tr><td>26/10–01/11</td><td>$385</td><td>10.820</td><td>177</td><td>1,64%</td><td>12</td><td class="g">$32.05</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Na última semana investimos 53% a mais e recebemos 50% mais pedidos, sem encarecer cada pedido. A parcela de quem vê o anúncio e clica também subiu todas as semanas.</p>
+</section>
+
+<section>
+  <h2>Como ler a tabela de anúncios</h2>
+  <div class="glossary">
+    <div class="term"><b>Pararam para ver</b><span>Das pessoas que viram o anúncio no feed, quantas assistiram pelo menos 3 segundos. Mostra se a abertura do vídeo prende.</span></div>
+    <div class="term"><b>Assistiram até o fim</b><span>Dessas pessoas, quantas viram o vídeo inteiro ou pelo menos 15 segundos. Mostra se a mensagem segura a atenção.</span></div>
+    <div class="term"><b>Custo por pedido</b><span>Quanto investimos para cada pessoa que preencheu o formulário pedindo aula experimental.</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Cada anúncio nos últimos 7 dias (26/10 a 01/11)</h2>
+  <p class="lede">Use os links "Assistir" para abrir o vídeo de cada anúncio. O formato vertical é o que aparece nos Stories e Reels; o 4:5 é o do feed. Em dourado, os dois vídeos novos para homens, no ar desde 31/10.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Anúncio</th><th>Público</th><th>Investido</th><th>Pararam para ver</th><th>Assistiram até o fim</th><th>% que clicou</th><th>Pedidos</th><th>Custo por pedido</th><th class="watch">Assistir</th></tr></thead>
+    <tbody>
+      <tr><td>"Type" (energia das crianças)</td><td>Pais</td><td>$66.82</td><td>10,6%</td><td>17,4%</td><td>1,49%</td><td>5</td><td class="g">$13.36</td><td class="watch"><a href="https://drive.google.com/file/d/1pMTwgLtJFKsjhhx7Z9NR4yr3LYr51iwr/view">vertical</a> · <a href="https://drive.google.com/file/d/1WQHZixpijApWdteDRWxKmT6CFVSMePIn/view">4:5</a></td></tr>
+      <tr><td>Defesa pessoal feminina</td><td>Mulheres</td><td>$65.27</td><td>12,3%</td><td class="w">11,5%</td><td class="g">2,69%</td><td>3</td><td class="g">$21.76</td><td class="watch"><a href="https://drive.google.com/file/d/1OFrAGhKP7CrJY0WQQfA97hXE-GBKrPu-/view">vertical</a> · <a href="https://drive.google.com/file/d/1k-eQAEVhT5oYOp-NY8awPhKIhyqEluwi/view">4:5</a></td></tr>
+      <tr><td>Comunidade feminina (pergunta)</td><td>Mulheres</td><td>$24.34</td><td class="b">9,3%</td><td>32,9%</td><td>1,46%</td><td>1</td><td class="g">$24.34</td><td class="watch"><a href="https://drive.google.com/file/d/1_hRBNtzkY_p3yX2fxKDUgGQhLNm3y1DH/view">vertical</a> · <a href="https://drive.google.com/file/d/1x3-pNXFg4ZdbGI11EalvoTJWLaXH9nZG/view">4:5</a></td></tr>
+      <tr><td>World champion, com o seu nome</td><td>Homens</td><td>$56.30</td><td>20,4%</td><td>27,3%</td><td>1,88%</td><td>1</td><td class="b">$56.30</td><td class="watch"><a href="https://drive.google.com/file/d/12ds1B4eLMvjjzqvvrha5i9cyByLh40iB/view">vertical</a> · <a href="https://drive.google.com/file/d/1zU1EYaqVvSn9mDWJ-hvtEo8InQQLJ_UC/view">4:5</a></td></tr>
+      <tr><td>World champion, sem o nome</td><td>Homens</td><td>$57.52</td><td>22,2%</td><td>27,7%</td><td class="w">1,06%</td><td>1</td><td class="b">$57.52</td><td class="watch"><a href="https://drive.google.com/file/d/1ey6c9IB_dQi16DMVH6luSzVy2luqqfG5/view">vertical</a> · <a href="https://drive.google.com/file/d/1V7F85k0QDNZmggQ66kS9nybeZ9HyjYi9/view">4:5</a></td></tr>
+      <tr class="new"><td>Defesa pessoal masculina <span class="tag new">novo</span></td><td>Homens</td><td>$19.19</td><td class="g">28,8%</td><td class="g">28,2%</td><td>1,36%</td><td>0</td><td>–</td><td class="watch"><a href="https://drive.google.com/file/d/1c-ZJ1D_FvJH3bgGCTGCu-qezu8CW5S8P/view">vertical</a> · <a href="https://drive.google.com/file/d/1HyhzvBMa6BH_vlA5MePKJZgVEjMlZplD/view">4:5</a></td></tr>
+      <tr class="new"><td>Disciplina <span class="tag new">novo</span></td><td>Homens</td><td>$19.26</td><td class="g">28,6%</td><td>21,4%</td><td>1,11%</td><td>1</td><td class="g">$19.26</td><td class="watch"><a href="https://drive.google.com/file/d/1DO9drkAigmWHOgfbPfMRfzR2JDuGSHeH/view">vertical</a> · <a href="https://drive.google.com/file/d/1DqRr78wJ3C8XWy8zoGGR10JFbVB1R6la/view">4:5</a></td></tr>
+      <tr class="off"><td>"Mosaic" (crianças) <span class="tag off">pausado 31/10</span></td><td>Pais</td><td>$39.56</td><td>19,4%</td><td>17,8%</td><td>0,67%</td><td>0</td><td>–</td><td class="watch"><a href="https://drive.google.com/file/d/1MOMBgpZb3lfcsnRYL5NdWKDeAH-cAbhq/view">vertical</a> · <a href="https://drive.google.com/file/d/1nCWEtPw3QMFZsHqPyO6WesapH1RXm9RX/view">4:5</a></td></tr>
+      <tr class="off"><td>Comunidade feminina (1ª versão) <span class="tag off">pausado 31/10</span></td><td>Mulheres</td><td>$31.34</td><td>13,1%</td><td>23,0%</td><td>1,46%</td><td>0</td><td>–</td><td class="watch"><a href="https://drive.google.com/file/d/1j3YNkBoQvD2ERUQX7HXlUMltmkWMz6Yx/view">vertical</a> · <a href="https://drive.google.com/file/d/1fBUqNn5ZiMhY9UA5GbfVuJ7r7rMxOJGA/view">4:5</a></td></tr>
+    </tbody>
+  </table></div>
+  <div class="folders">
+    <span>Pastas com todos os vídeos:</span>
+    <a href="https://drive.google.com/drive/folders/1fQgaSBGLPfcIR_czvMraeWfp3hFSvY_f">Kids e Women</a>
+    <a href="https://drive.google.com/drive/folders/1DJHNt-BDOzji9odp9x56_8CM6ckqOVCT">Men</a>
+  </div>
+</section>
+
+<section>
+  <h2>Destaque: os vídeos novos para homens</h2>
+  <p class="lede">Os dois vídeos entraram no ar no sábado (31/10), com as aberturas que você sugeriu. Ainda são só dois dias, então os números podem mudar, mas a tendência já aparece.</p>
+  <div class="two">
+    <div class="panel">
+      <h3>As aberturas que estão no ar</h3>
+      <div class="hooks">
+        <div class="hook"><q>Could you protect your family if you had to?</q><span>Defesa pessoal · <a href="https://drive.google.com/file/d/1c-ZJ1D_FvJH3bgGCTGCu-qezu8CW5S8P/view">assistir</a></span></div>
+        <div class="hook"><q>Motivation fades. Is your discipline trained?</q><span>Disciplina · <a href="https://drive.google.com/file/d/1DO9drkAigmWHOgfbPfMRfzR2JDuGSHeH/view">assistir</a></span></div>
+      </div>
+      <h3>Quantos homens pararam para ver (desde 31/10)</h3>
+      <div class="hookbars" role="img" aria-label="Pararam para ver desde 31/10: defesa pessoal 30,0%, disciplina 28,2%, world champion sem nome 26,3%, world champion com nome 18,9%">
+        <div class="hb new"><span>Defesa pessoal</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="n">30,0%</span></div>
+        <div class="hb new"><span>Disciplina</span><div class="track"><div class="fill" style="width:94%"></div></div><span class="n">28,2%</span></div>
+        <div class="hb"><span>Champion sem nome</span><div class="track"><div class="fill" style="width:87.7%"></div></div><span class="n">26,3%</span></div>
+        <div class="hb"><span>Champion com nome</span><div class="track"><div class="fill" style="width:63%"></div></div><span class="n">18,9%</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>O que os números mostram</h3>
+      <ul class="points">
+        <li><span class="dot g"></span><span><b>Defesa pessoal</b> é hoje o vídeo que mais prende em toda a conta: 30% dos homens param para ver e um terço deles assiste até o fim. Já gerou 1 pedido de aula.</span></li>
+        <li><span class="dot g"></span><span><b>Disciplina</b> abre quase tão bem e também já gerou 1 pedido, por $24. O meio do vídeo convence um pouco menos, porque menos gente clica.</span></li>
+        <li><span class="dot g"></span><span>Em dois dias, os dois vídeos novos trouxeram 2 pedidos com $54. Os dois vídeos "world champion" precisaram de uma semana inteira e $114 para trazer os mesmos 2.</span></li>
+        <li><span class="dot w"></span><span>Aparecer para homens em South Austin está caro neste momento, porque agora são quatro anúncios masculinos disputando as mesmas pessoas. O custo deve cair quando ficarmos só com os dois melhores.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="two">
+  <div class="panel">
+    <h2>O que melhorou</h2>
+    <ul class="points">
+      <li><span class="dot g"></span><span>Os pedidos de aula triplicaram, de 4 ou 5 por semana para 12, e cada pedido custa metade do que custava no começo do mês.</span></li>
+      <li><span class="dot g"></span><span>Abrir o vídeo com uma pergunta sobre o problema de quem assiste funciona com os três públicos. Com os homens, prende cerca de 10 pontos a mais que o "world champion".</span></li>
+      <li><span class="dot g"></span><span>O vídeo "Type", para pais, é o que traz pedidos mais baratos: $13 cada na última semana.</span></li>
+      <li><span class="dot g"></span><span>A defesa pessoal feminina é o anúncio que mais gera cliques: 2,7% de quem vê clica.</span></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h2>O que precisa de atenção</h2>
+    <ul class="points">
+      <li><span class="dot w"></span><span>Os vídeos de pais ("Type") e de defesa pessoal feminina estão prendendo menos gente na abertura do que nas primeiras semanas. Vamos preparar aberturas novas e manter o resto do vídeo, que está trazendo pedidos.</span></li>
+      <li><span class="dot b"></span><span>O vídeo de comunidade feminina prende pouca gente (9%). A proposta é pausá-lo.</span></li>
+      <li><span class="dot w"></span><span>Os dois vídeos "world champion" estão empatados, com 1 pedido cada, a cerca de $57. A versão com o seu nome gera mais cliques.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Próximos passos</h2>
+  <ol class="next">
+    <li>Pausar o vídeo de comunidade feminina e a versão "world champion" sem o seu nome. O investimento volta para dentro do teto de $50/dia combinado. Ele ficou em $62/dia de 31/10 a 03/11 só para os vídeos novos começarem a rodar.</li>
+    <li>Deixar os dois vídeos novos (defesa pessoal e disciplina) rodando mais alguns dias para confirmar a tendência.</li>
+    <li>Produzir aberturas novas para os vídeos de pais e de defesa pessoal feminina.</li>
+    <li>Na próxima leva para homens, testar as outras duas aberturas que você aprovou: "Think you're too old to start jiu-jitsu?" e "Work. Home. Repeat. Where's your crew?".</li>
+  </ol>
+</section>
+
+<footer>
+  <span>Fonte: dados do Gerenciador de Anúncios da Meta, consultados em 02/11/2026. Valores em dólar. "Pedidos" são os formulários de aula experimental preenchidos dentro do anúncio.</span>
+  <span>Os números dos vídeos novos vão de 31/10 a 02/11, com o dia 02/11 ainda em andamento.</span>
+</footer>
+</div>

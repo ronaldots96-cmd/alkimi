@@ -7,7 +7,7 @@
 <title>New lead</title>
 </head>
 <body style="margin:0;padding:0;background:#E7E7E7;">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#E7E7E7;">{{ $json["Parent's Name"] }} just requested a trial class on the {{ $json.LP === 'kids' ? 'Kids' : 'Women' }} page. Call {{ $json.Phone }}.</div>
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#E7E7E7;">{{ $json["Parent's Name"] }} just requested a trial class on the {{ ($json.LP === 'kids' ? 'Kids' : $json.LP === 'adults' ? 'Adults' : 'Women') }} page. Call {{ $json.Phone }}.</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#E7E7E7;">
 <tr><td align="center" style="padding:24px 12px;">
 <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background:#FFFFFF;">
@@ -23,7 +23,7 @@
 
   <!-- Who -->
   <tr><td style="padding:32px 32px 8px;">
-    <span style="display:inline-block;padding:4px 10px;background:{{ $json.LP === 'kids' ? '#1C332C' : '#5E3A44' }};color:#F8FAFF;font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;">{{ $json.LP === 'kids' ? 'Kids' : 'Women' }} landing page</span>
+    <span style="display:inline-block;padding:4px 10px;background:{{ ($json.LP === 'kids' ? '#1C332C' : $json.LP === 'adults' ? '#0D0F12' : '#5E3A44') }};color:#F8FAFF;font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;">{{ ($json.LP === 'kids' ? 'Kids' : $json.LP === 'adults' ? 'Adults' : 'Women') }}{{ $json['Lead source'] === 'meta_form' ? ' · Meta form' : ' landing page' }}</span>
     <h1 style="margin:16px 0 6px;font-family:Montserrat, 'Helvetica Neue', Arial, sans-serif;font-size:28px;line-height:1.15;font-weight:300;color:#0D0F12;">{{ String($json["Parent's Name"] || '').trim().split(' ')[0] }} wants a <strong style="font-weight:600;">trial class</strong></h1>
     <p style="margin:0;font-family:'Helvetica Neue', Arial, sans-serif;font-size:14px;color:#3B4148;">Received {{ DateTime.fromISO($json.Date).setZone('America/Chicago').toFormat("ccc, LLL d 'at' h:mm a") }} (Austin time)</p>
   </td></tr>
@@ -44,7 +44,7 @@
       <tr><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;">{{ $json.LP === 'kids' ? 'Parent' : 'Name' }}</td><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;">{{ $json["Parent's Name"] }}</td></tr>
       <tr><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;">Phone</td><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;"><a href="tel:{{ String($json.Phone || '').replace(/[^\d+]/g, '') }}" style="color:#0D0F12;text-decoration:none;">{{ $json.Phone }}</a></td></tr>
       <tr><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;">Email</td><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:'Helvetica Neue', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;"><a href="mailto:{{ $json.Email }}" style="color:#0D0F12;text-decoration:none;">{{ $json.Email }}</a></td></tr>
-      {{ $json.LP === 'kids' ? '<tr><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:\'Helvetica Neue\', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;">Child\'s name</td><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:\'Helvetica Neue\', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;">' + ($json["Child's Name"] || '–') + '</td></tr><tr><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:\'Helvetica Neue\', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;">Child\'s age</td><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:\'Helvetica Neue\', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;">' + ($json["Child's Age"] || '–') + '</td></tr>' : '<tr><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:\'Helvetica Neue\', Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;">Prior experience</td><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:\'Helvetica Neue\', Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;">' + (($('Webhook Women').isExecuted && $('Webhook Women').item.json.body.experience === 'yes') ? 'Yes, has trained before' : 'No, first time') + '</td></tr>' }}
+      {{ (() => { const r = (k, v) => '<tr><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:Helvetica, Arial, sans-serif;font-size:13px;color:#3B4148;width:38%;vertical-align:top;">' + k + '</td><td style="padding:12px 0;border-bottom:1px solid #E7E7E7;font-family:Helvetica, Arial, sans-serif;font-size:15px;color:#0D0F12;font-weight:600;vertical-align:top;">' + (v || '–') + '</td></tr>'; return $json.LP === 'kids' ? r("Child's name", $json["Child's Name"]) + r("Child's age", $json["Child's Age"]) : r('Experience', $json.Experience) + ($json.LP === 'adults' ? r('Class', $json.Class) + r('Goal', $json.Goal) : ''); })() }}
     </table>
   </td></tr>
 
@@ -67,7 +67,7 @@
   <tr><td style="background:#0D0F12;padding:20px 32px;font-family:'Helvetica Neue', Arial, sans-serif;font-size:12px;line-height:1.6;color:#AEB4BC;">
     Leads called back quickly book more trial classes. This lead is also saved in the
     <a href="https://docs.google.com/spreadsheets/d/1xdPc97jGTGg5iypZQJfmLfTKu9i6T0OslArZIAFLtw4/edit#gid=0" style="color:#D9BC7A;text-decoration:underline;">leads sheet</a>.<br>
-    Alkimi Jiu-Jitsu South Austin · automatic alert from the landing pages
+    Alkimi Jiu-Jitsu South Austin · automatic alert from the landing pages and Meta lead forms
   </td></tr>
 
 </table>
